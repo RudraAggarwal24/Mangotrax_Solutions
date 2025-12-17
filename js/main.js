@@ -2,19 +2,30 @@
 // Main JavaScript for Mangotrax Solutions
 // ============================================
 
-// DOM Elements
-const loader = document.getElementById('loader');
-const header = document.getElementById('header');
-const navToggle = document.getElementById('nav-toggle');
-const navMenu = document.getElementById('nav-menu');
-const navLinks = document.querySelectorAll('.nav-link');
-const consultationBtn = document.getElementById('consultation-btn');
-const auditBtn = document.getElementById('audit-btn');
-const callbackBtn = document.getElementById('callback-btn');
-const footerAuditBtn = document.getElementById('footer-audit-btn');
-const modal = document.getElementById('consultation-modal');
-const modalClose = document.querySelector('.modal-close');
-const consultationForm = document.getElementById('consultation-form');
+// DOM Elements - Initialize after DOM is ready
+let loader, header, navToggle, navMenu, navLinks, consultationBtn, auditBtn, footerAuditBtn, modal, modalClose, consultationForm;
+
+function initDOMElements() {
+    loader = document.getElementById('loader');
+    header = document.getElementById('header');
+    navToggle = document.getElementById('nav-toggle');
+    navMenu = document.getElementById('nav-menu');
+    navLinks = document.querySelectorAll('.nav-link');
+    consultationBtn = document.getElementById('consultation-btn');
+    auditBtn = document.getElementById('audit-btn');
+    footerAuditBtn = document.getElementById('footer-audit-btn');
+    modal = document.getElementById('consultation-modal');
+    modalClose = document.querySelector('.modal-close');
+    consultationForm = document.getElementById('consultation-form');
+}
+
+// Initialize immediately (script is at end of body, so DOM should be ready)
+initDOMElements();
+
+// Also initialize on DOMContentLoaded as fallback
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initDOMElements);
+}
 
 // ============================================
 // Loading Screen
@@ -26,20 +37,22 @@ window.addEventListener('load', () => {
 });
 
 // ============================================
-// Header Scroll Effect
+// Header Scroll Effect - Fixed Header
 // ============================================
-let lastScroll = 0;
-window.addEventListener('scroll', () => {
-    const currentScroll = window.pageYOffset;
-    
-    if (currentScroll > 100) {
-        header.classList.add('scrolled');
-    } else {
-        header.classList.remove('scrolled');
-    }
-    
-    lastScroll = currentScroll;
-});
+// Header is fixed at the top - logo, navigation menu, and buttons are always visible
+// Clean and professional design with smooth user experience
+if (header) {
+    // Optional: Add subtle shadow on scroll for better visual separation
+    window.addEventListener("scroll", () => {
+        if (header) {
+            if (window.scrollY > 50) {
+                header.style.boxShadow = "0 4px 12px rgba(0, 0, 0, 0.12)";
+            } else {
+                header.style.boxShadow = "0 2px 8px rgba(0, 0, 0, 0.08)";
+            }
+        }
+    }, { passive: true });
+}
 
 // ============================================
 // Mobile Menu Toggle
@@ -80,17 +93,30 @@ document.addEventListener('click', (e) => {
 function openModal() {
     if (modal) {
         modal.classList.add('active');
+        // Hide scrollbars on body and html
         document.body.style.overflow = 'hidden';
+        document.documentElement.style.overflow = 'hidden';
         // Add entrance animation
         const modalContent = modal.querySelector('.modal-content');
-        modalContent.style.animation = 'slideDown 0.4s ease';
+        if (modalContent) {
+            modalContent.style.animation = 'slideDown 0.4s ease';
+        }
+        // Ensure modal is visible
+        modal.style.display = 'flex';
+        modal.style.alignItems = 'center';
+        modal.style.justifyContent = 'center';
+    } else {
+        console.error('Modal element not found');
     }
 }
 
 function closeModal() {
     if (modal) {
         modal.classList.remove('active');
+        modal.style.display = 'none';
+        // Restore scrollbars
         document.body.style.overflow = '';
+        document.documentElement.style.overflow = '';
     }
 }
 
@@ -109,12 +135,7 @@ if (auditBtn) {
     });
 }
 
-if (callbackBtn) {
-    callbackBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        openModal();
-    });
-}
+// Callback button functionality removed
 
 // About page callback button
 const callbackBtnAbout = document.getElementById('callback-btn-about');
@@ -264,25 +285,25 @@ document.querySelectorAll('.stat-card, .service-card, .testimonial-card, .blog-c
     }
 });
 
-// Parallax effect for hero section (removed opacity fade)
-window.addEventListener('scroll', () => {
-    const scrolled = window.pageYOffset;
-    const hero = document.querySelector('.hero');
-    if (hero) {
-        const heroContent = hero.querySelector('.hero-content');
-        if (heroContent && scrolled < window.innerHeight) {
-            heroContent.style.transform = `translateY(${scrolled * 0.5}px)`;
-            heroContent.style.opacity = 1;
-        }
-    }
-    
-    // Parallax for hero circles
-    const circles = document.querySelectorAll('.hero-circle');
-    circles.forEach((circle, index) => {
-        const speed = 0.3 + (index * 0.1);
-        circle.style.transform = `translateY(${scrolled * speed}px)`;
-    });
-});
+// Parallax effect for hero section (removed - text no longer moves on scroll)
+// window.addEventListener('scroll', () => {
+//     const scrolled = window.pageYOffset;
+//     const hero = document.querySelector('.hero');
+//     if (hero) {
+//         const heroContent = hero.querySelector('.hero-content');
+//         if (heroContent && scrolled < window.innerHeight) {
+//             heroContent.style.transform = `translateY(${scrolled * 0.5}px)`;
+//             heroContent.style.opacity = 1;
+//         }
+//     }
+//     
+//     // Parallax for hero circles
+//     const circles = document.querySelectorAll('.hero-circle');
+//     circles.forEach((circle, index) => {
+//         const speed = 0.3 + (index * 0.1);
+//         circle.style.transform = `translateY(${scrolled * speed}px)`;
+//     });
+// });
 
 // ============================================
 // Testimonials Carousel (Disabled - Now using grid layout)
