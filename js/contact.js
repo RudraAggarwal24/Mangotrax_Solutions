@@ -6,6 +6,52 @@ document.addEventListener('DOMContentLoaded', function() {
     // Contact form validation and submission
     const contactForm = document.getElementById('contact-form');
     const contactConsultationBtn = document.getElementById('contact-consultation-btn');
+    const subjectSelect = document.getElementById('contact-subject');
+    const selectIconDisplay = document.getElementById('select-icon-display');
+    const serviceOptions = document.querySelectorAll('.service-option');
+    
+    // Update select icon based on selected option
+    function updateSelectIcon() {
+        const selectedOption = subjectSelect.options[subjectSelect.selectedIndex];
+        const iconClass = selectedOption.getAttribute('data-icon');
+        if (iconClass) {
+            selectIconDisplay.className = `fas fa-${iconClass}`;
+            selectIconDisplay.style.display = 'block';
+        } else {
+            selectIconDisplay.style.display = 'none';
+        }
+    }
+    
+    // Handle service option clicks
+    serviceOptions.forEach(option => {
+        option.addEventListener('click', function() {
+            const value = this.getAttribute('data-value');
+            subjectSelect.value = value;
+            
+            // Update visual state
+            serviceOptions.forEach(opt => opt.classList.remove('active'));
+            this.classList.add('active');
+            
+            updateSelectIcon();
+            subjectSelect.dispatchEvent(new Event('change'));
+        });
+    });
+    
+    // Update service options when select changes
+    subjectSelect.addEventListener('change', function() {
+        const value = this.value;
+        serviceOptions.forEach(opt => {
+            if (opt.getAttribute('data-value') === value) {
+                opt.classList.add('active');
+            } else {
+                opt.classList.remove('active');
+            }
+        });
+        updateSelectIcon();
+    });
+    
+    // Initialize icon display
+    updateSelectIcon();
     
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
@@ -15,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const name = document.getElementById('contact-name').value.trim();
             const email = document.getElementById('contact-email').value.trim();
             const phone = document.getElementById('contact-phone').value.trim();
-            const subject = document.getElementById('contact-subject').value.trim();
+            const subject = document.getElementById('contact-subject').value;
             const message = document.getElementById('contact-message').value.trim();
             
             // Validate form
@@ -36,6 +82,10 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Reset form
             contactForm.reset();
+            
+            // Reset service options visual state
+            serviceOptions.forEach(opt => opt.classList.remove('active'));
+            updateSelectIcon();
             
             // In a real application, you would send the form data to a server here
             // Example:

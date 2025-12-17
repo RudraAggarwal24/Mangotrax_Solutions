@@ -3,7 +3,7 @@
 // ============================================
 
 // DOM Elements - Initialize after DOM is ready
-let loader, header, navToggle, navMenu, navLinks, consultationBtn, auditBtn, footerAuditBtn, modal, modalClose, consultationForm;
+let loader, header, navToggle, navMenu, navLinks, consultationBtn, auditBtn, modal, modalClose, consultationForm;
 
 function initDOMElements() {
     loader = document.getElementById('loader');
@@ -13,7 +13,6 @@ function initDOMElements() {
     navLinks = document.querySelectorAll('.nav-link');
     consultationBtn = document.getElementById('consultation-btn');
     auditBtn = document.getElementById('audit-btn');
-    footerAuditBtn = document.getElementById('footer-audit-btn');
     modal = document.getElementById('consultation-modal');
     modalClose = document.querySelector('.modal-close');
     consultationForm = document.getElementById('consultation-form');
@@ -155,12 +154,6 @@ if (callbackBtnServices) {
     });
 }
 
-if (footerAuditBtn) {
-    footerAuditBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        openModal();
-    });
-}
 
 // Close modal
 if (modalClose) {

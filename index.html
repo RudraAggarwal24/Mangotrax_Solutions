@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <div id="loader" class="loader">
@@ -27,19 +28,103 @@
                 <li class="nav-item has-dropdown">
                     <a href="services.html" class="nav-link">Services <span class="dropdown-icon">▼</span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="online-reputation-management-orm.html">Online Reputation Management (ORM)</a></li>
-                        <li><a href="web-design-and-development.html">Web Design & Development</a></li>
-                        <li><a href="digital-marketing.html">Digital Marketing</a></li>
-                        <li><a href="branding-and-creative-services.html">Branding & Creative Services</a></li>
+                        <li>
+                            <a href="online-reputation-management-orm.html" class="dropdown-item">
+                                <span class="dropdown-icon-wrapper">
+                                    <i class="fas fa-shield-alt"></i>
+                                </span>
+                                <span class="dropdown-text">
+                                    <span class="dropdown-title">Online Reputation Management</span>
+                                    <span class="dropdown-subtitle">ORM</span>
+                                </span>
+                                <i class="fas fa-chevron-right dropdown-arrow"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="web-design-and-development.html" class="dropdown-item">
+                                <span class="dropdown-icon-wrapper">
+                                    <i class="fas fa-code"></i>
+                                </span>
+                                <span class="dropdown-text">
+                                    <span class="dropdown-title">Web Design & Development</span>
+                                    <span class="dropdown-subtitle">Custom Websites</span>
+                                </span>
+                                <i class="fas fa-chevron-right dropdown-arrow"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="digital-marketing.html" class="dropdown-item">
+                                <span class="dropdown-icon-wrapper">
+                                    <i class="fas fa-bullhorn"></i>
+                                </span>
+                                <span class="dropdown-text">
+                                    <span class="dropdown-title">Digital Marketing</span>
+                                    <span class="dropdown-subtitle">SEO & PPC</span>
+                                </span>
+                                <i class="fas fa-chevron-right dropdown-arrow"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="branding-and-creative-services.html" class="dropdown-item">
+                                <span class="dropdown-icon-wrapper">
+                                    <i class="fas fa-palette"></i>
+                                </span>
+                                <span class="dropdown-text">
+                                    <span class="dropdown-title">Branding & Creative</span>
+                                    <span class="dropdown-subtitle">Creative Services</span>
+                                </span>
+                                <i class="fas fa-chevron-right dropdown-arrow"></i>
+                            </a>
+                        </li>
                     </ul>
                 </li>
                 <li class="nav-item has-dropdown">
                     <a href="showcase.html" class="nav-link">Showcase <span class="dropdown-icon">▼</span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="showcase.html">Case Study – SaaS</a></li>
-                        <li><a href="https://www.mangotrax.com/?page_id=17357" target="_blank">Case Study – Ed-Tech</a></li>
-                        <li><a href="https://www.mangotrax.com/?page_id=17400" target="_blank">Case Study – Healthcare</a></li>
-                        <li><a href="https://www.mangotrax.com/?page_id=17419" target="_blank">Case Study – Entertainment</a></li>
+                        <li>
+                            <a href="showcase.html" class="dropdown-item">
+                                <span class="dropdown-icon-wrapper">
+                                    <i class="fas fa-briefcase"></i>
+                                </span>
+                                <span class="dropdown-text">
+                                    <span class="dropdown-title">Case Study – SaaS</span>
+                                </span>
+                                <i class="fas fa-chevron-right dropdown-arrow"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.mangotrax.com/?page_id=17357" target="_blank" class="dropdown-item">
+                                <span class="dropdown-icon-wrapper">
+                                    <i class="fas fa-graduation-cap"></i>
+                                </span>
+                                <span class="dropdown-text">
+                                    <span class="dropdown-title">Case Study – Ed-Tech</span>
+                                </span>
+                                <i class="fas fa-chevron-right dropdown-arrow"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.mangotrax.com/?page_id=17400" target="_blank" class="dropdown-item">
+                                <span class="dropdown-icon-wrapper">
+                                    <i class="fas fa-heartbeat"></i>
+                                </span>
+                                <span class="dropdown-text">
+                                    <span class="dropdown-title">Case Study – Healthcare</span>
+                                </span>
+                                <i class="fas fa-chevron-right dropdown-arrow"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.mangotrax.com/?page_id=17419" target="_blank" class="dropdown-item">
+                                <span class="dropdown-icon-wrapper">
+                                    <i class="fas fa-film"></i>
+                                </span>
+                                <span class="dropdown-text">
+                                    <span class="dropdown-title">Case Study – Entertainment</span>
+                                </span>
+                                <i class="fas fa-chevron-right dropdown-arrow"></i>
+                            </a>
+                        </li>
                     </ul>
                 </li>
                 <li class="nav-item"><a href="blogs.html" class="nav-link">Blogs</a></li>
@@ -439,7 +524,7 @@
                     </div>
                     <p class="footer-text">Questions? Reach us<br>Monday – Friday from 9 am to 6 pm</p>
                     <p class="footer-phone"><a href="tel:+919220679500">+91 92206 79500</a></p>
-                    <button class="btn btn-outline btn-small" id="footer-audit-btn">Free Audit</button>
+                    <a href="contact.html" class="btn btn-outline btn-small">Free Audit</a>
                 </div>
                 <div class="footer-col">
                     <h6 class="footer-title">Company</h6>
