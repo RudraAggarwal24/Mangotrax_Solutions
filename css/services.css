@@ -256,36 +256,19 @@
 }
 
 .cta-spheres-services {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 50%;
-    height: 100%;
-    pointer-events: none;
+    display: none;
 }
 
 .cta-sphere-services {
-    position: absolute;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.4);
-    backdrop-filter: blur(20px);
-    animation: float 15s infinite ease-in-out;
+    display: none;
 }
 
 .cta-sphere-services.sphere-1 {
-    width: 250px;
-    height: 250px;
-    top: -50px;
-    right: 50px;
-    animation-delay: 0s;
+    display: none;
 }
 
 .cta-sphere-services.sphere-2 {
-    width: 180px;
-    height: 180px;
-    bottom: -30px;
-    right: 150px;
-    animation-delay: 5s;
+    display: none;
 }
 
 .services-cta-content {
@@ -496,6 +479,14 @@
     .services-cta-content {
         flex-direction: column;
         text-align: center;
+        gap: var(--spacing-lg);
+        padding: var(--spacing-xl);
+    }
+    
+    .services-cta .btn {
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
     }
     
     .why-work-services-grid {
@@ -958,6 +949,33 @@
     
     .featured-cases-slider {
         grid-template-columns: 1fr;
+    }
+    
+    /* Services CTA mobile adjustments */
+    .services-cta {
+        padding: var(--spacing-2xl) 0;
+    }
+    
+    .services-cta-content {
+        flex-direction: column;
+        text-align: center;
+        padding: var(--spacing-xl);
+        gap: var(--spacing-lg);
+    }
+    
+    .services-cta-text {
+        width: 100%;
+    }
+    
+    .services-cta-title {
+        font-size: clamp(1.5rem, 4vw, 2rem);
+    }
+    
+    .services-cta .btn {
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+    }
     }
     
     .service-provided-image {
