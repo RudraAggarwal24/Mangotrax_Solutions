@@ -68,7 +68,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     min-height: 280px;
     flex: 1;
     flex-basis: 0;
@@ -110,141 +110,160 @@
     margin-bottom: var(--spacing-lg);
     position: relative;
     z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 150px;
+    justify-content: flex-start;
 }
 
 .service-icon-wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 150px;
+    height: 100px;
+    width: 100%;
+    flex-shrink: 0;
 }
 
-/* ORM Icon - Circle with stars */
-.service-icon-circle {
-    width: 120px;
-    height: 120px;
-    background: linear-gradient(135deg, var(--secondary-color), #0d7bb8);
-    border-radius: 50%;
+.service-icon-divider {
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+    margin: var(--spacing-md) 0;
+    border-radius: 2px;
+}
+
+/* ORM Icon - Shield */
+.service-icon-shield {
+    width: 100px;
+    height: 100px;
+    background: transparent;
+    border-radius: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--bg-white);
-    box-shadow: 0 8px 24px rgba(6, 147, 227, 0.3);
+    color: var(--primary-color);
+    box-shadow: none;
     transition: all var(--transition-base);
     position: relative;
 }
 
-.service-card-main:hover .service-icon-circle {
-    transform: scale(1.1) rotate(360deg);
-    box-shadow: 0 12px 32px rgba(6, 147, 227, 0.4);
+.service-card-main:hover .service-icon-shield {
+    transform: scale(1.1);
 }
 
-.service-icon-circle svg {
-    width: 60px;
-    height: 60px;
+.service-icon-shield i {
+    font-size: 4.5rem;
+    color: var(--primary-color);
 }
 
 /* Code Icon - HTML Tag */
 .service-icon-code {
-    font-size: 5rem;
-    font-weight: 900;
-    color: #e74c3c;
-    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
-    transform: perspective(500px) rotateY(-15deg);
+    width: 100px;
+    height: 100px;
+    background: transparent;
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-color);
+    box-shadow: none;
     transition: all var(--transition-base);
+    position: relative;
 }
 
 .service-card-main:hover .service-icon-code {
-    transform: perspective(500px) rotateY(0deg) scale(1.2);
-    text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+    transform: scale(1.1);
 }
 
-/* Infinity Icon - Digital Marketing */
-.service-icon-infinity {
-    width: 120px;
-    height: 120px;
-    background: linear-gradient(135deg, var(--secondary-color), #0d7bb8);
-    border-radius: 50%;
+.service-icon-code i {
+    font-size: 4.5rem;
+    color: var(--primary-color);
+}
+
+/* Megaphone Icon - Digital Marketing */
+.service-icon-megaphone {
+    width: 100px;
+    height: 100px;
+    background: transparent;
+    border-radius: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--bg-white);
-    box-shadow: 0 8px 24px rgba(6, 147, 227, 0.3);
+    color: var(--primary-color);
+    box-shadow: none;
     transition: all var(--transition-base);
-}
-
-.service-card-main:hover .service-icon-infinity {
-    transform: scale(1.1) rotate(180deg);
-    box-shadow: 0 12px 32px rgba(6, 147, 227, 0.4);
-}
-
-.service-icon-infinity svg {
-    width: 70px;
-    height: 70px;
-}
-
-/* Cubes Icon - Branding */
-.service-icon-cubes {
-    display: flex;
-    gap: var(--spacing-sm);
-    align-items: center;
-    justify-content: center;
-    perspective: 500px;
-}
-
-.cube {
-    width: 50px;
-    height: 50px;
-    background: linear-gradient(135deg, #ffb3d9, #ff8cc8);
-    border-radius: 8px;
     position: relative;
-    transform-style: preserve-3d;
+}
+
+.service-card-main:hover .service-icon-megaphone {
+    transform: scale(1.1);
+}
+
+.service-icon-megaphone i {
+    font-size: 4.5rem;
+    color: var(--primary-color);
+}
+
+/* Palette Icon - Branding */
+.service-icon-palette {
+    width: 100px;
+    height: 100px;
+    background: transparent;
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-color);
+    box-shadow: none;
     transition: all var(--transition-base);
-    box-shadow: 0 4px 12px rgba(255, 182, 193, 0.4);
+    position: relative;
 }
 
-.cube::before {
-    content: '';
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    background: radial-gradient(circle, #ffd700, #ffb347);
-    border-radius: 50%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    opacity: 0.8;
+.service-card-main:hover .service-icon-palette {
+    transform: scale(1.1);
 }
 
-.cube-1 {
-    transform: rotateY(-20deg) rotateX(10deg);
-}
-
-.cube-2 {
-    transform: rotateY(0deg) rotateX(0deg);
-}
-
-.cube-3 {
-    transform: rotateY(20deg) rotateX(-10deg);
-}
-
-.service-card-main:hover .cube {
-    transform: rotateY(0deg) rotateX(0deg) translateY(-10px);
-    box-shadow: 0 8px 20px rgba(255, 182, 193, 0.6);
+.service-icon-palette i {
+    font-size: 4.5rem;
+    color: var(--primary-color);
 }
 
 .service-card-title {
     font-family: var(--font-secondary);
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: var(--text-dark);
+    font-size: 1.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--text-dark) 0%, var(--primary-color) 50%, var(--text-dark) 100%);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     position: relative;
     z-index: 1;
-    transition: color var(--transition-base);
+    transition: all var(--transition-base);
+    line-height: 1.4;
+    letter-spacing: 0.02em;
 }
 
 .service-card-main:hover .service-card-title {
-    color: var(--secondary-color);
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 50%, var(--primary-color) 100%);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradientShift 2s ease infinite;
+    transform: translateY(-2px);
+}
+
+@keyframes gradientShift {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
 }
 
 /* Services CTA Section */
