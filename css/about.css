@@ -1000,6 +1000,31 @@
     box-shadow: var(--brutal-shadow);
 }
 
+/* Free Audit Button - Neo-Brutalist Design (About Page Only) */
+.footer .btn-outline.btn-small {
+    background: var(--brutal-black) !important;
+    color: var(--brutal-white) !important;
+    border: var(--brutal-border) solid var(--brutal-black) !important;
+    border-radius: 0 !important;
+    padding: 12px 24px !important;
+    font-size: 0.875rem !important;
+    font-weight: 900 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+    box-shadow: var(--brutal-shadow-sm) !important;
+    transform: rotate(1deg) !important;
+    transition: all 0.2s ease !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+}
+
+.footer .btn-outline.btn-small:hover {
+    background: var(--brutal-yellow) !important;
+    color: var(--brutal-black) !important;
+    transform: rotate(0deg) scale(1.05) !important;
+    box-shadow: var(--brutal-shadow) !important;
+    border-color: var(--brutal-black) !important;
+}
+
 @media (max-width: 768px) {
     .footer .footer-col {
         transform: rotate(0deg) !important;

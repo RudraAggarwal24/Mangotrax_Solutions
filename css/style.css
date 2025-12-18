@@ -78,6 +78,8 @@ html {
     height: 100%;
     margin: 0;
     padding: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 body {
@@ -85,6 +87,7 @@ body {
     color: var(--text-dark);
     line-height: 1.6;
     overflow-x: hidden;
+    overflow-y: hidden;
     background: var(--bg-gradient);
     background-attachment: fixed;
     transform: scale(0.8);
@@ -92,6 +95,16 @@ body {
     width: 125%;
     margin: 0;
     position: relative;
+}
+
+/* Hide scrollbar on body - only html should scroll */
+body::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 }
 
 /* Animated Background Grid */
@@ -2731,6 +2744,16 @@ body::after {
     left: 0;
 }
 
+/* Free Audit Button in Footer - White Text (All pages except about) */
+.footer .btn-outline.btn-small {
+    color: var(--bg-white) !important;
+    border-color: var(--bg-white) !important;
+}
+
+.footer .btn-outline.btn-small:hover {
+    color: var(--bg-white) !important;
+}
+
 /* WhatsApp Button */
 .whatsapp-btn {
     position: fixed !important;
@@ -3048,15 +3071,18 @@ html {
 
   padding: 10px 18px;
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 600;
+  font-family: var(--font-primary);
 
-  background: #ffffff;
-  color: #1d4ed8;
-  border: 1px solid #1d4ed8;
+  background: var(--gradient-primary);
+  color: var(--bg-white);
+  border: none;
   border-radius: 6px 6px 0 0;
+  box-shadow: var(--shadow-primary);
 
   white-space: nowrap;
   cursor: pointer;
+  transition: all var(--transition-base);
 
   z-index: 2147483647;
 
@@ -3064,6 +3090,12 @@ html {
   backface-visibility: hidden;
   will-change: transform;
   isolation: isolate;
+}
+
+#coffeeTab:hover {
+  background: var(--gradient-secondary);
+  box-shadow: var(--shadow-secondary);
+  transform: translateY(-50%) rotate(-90deg) translateZ(0) scale(1.05);
 }
 
 /* ===== DIALOG PANEL ===== */
@@ -3087,8 +3119,14 @@ html {
 
   max-height: 90vh;
   overflow-y: auto;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
 
   z-index: 2147483646;
+}
+
+#coffeeDialog::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
 
   /* Same protection as WhatsApp button */
   backface-visibility: hidden;
@@ -3133,10 +3171,40 @@ html {
 
 .cd-form button {
   width: 100%;
-  padding: 12px;
-  background: #1d4ed8;
-  color: #fff;
+  padding: 12px 24px;
+  font-family: var(--font-primary);
+  font-weight: 600;
+  font-size: 0.95rem;
+  background: var(--gradient-primary);
+  color: var(--bg-white);
   border: none;
-  border-radius: 6px;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: all var(--transition-base);
+  box-shadow: var(--shadow-primary);
+  position: relative;
+  overflow: hidden;
+  background-size: 200% 200%;
+}
+
+.cd-form button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left var(--transition-slow);
+}
+
+.cd-form button:hover {
+  background-position: 100% 0;
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: var(--shadow-lg), var(--shadow-glow);
+}
+
+.cd-form button:hover::before {
+  left: 100%;
 }
 
