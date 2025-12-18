@@ -390,11 +390,18 @@
 .working-process {
     padding: var(--spacing-3xl) 0;
     background: var(--bg-light);
+    overflow-x: hidden;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .working-process-content {
     max-width: 1000px;
     margin: 0 auto;
+    padding: 0 var(--spacing-lg);
+    box-sizing: border-box;
+    width: 100%;
+    overflow: visible;
 }
 
 .working-process-title {
@@ -423,15 +430,29 @@
     display: flex;
     flex-direction: column;
     gap: var(--spacing-xl);
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    position: relative;
 }
 
 .process-step {
     display: flex;
-    gap: var(--spacing-xl);
+    gap: var(--spacing-lg);
     align-items: flex-start;
     opacity: 0;
     transform: translateX(-30px);
     animation: slideInRight 0.6s ease forwards;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    min-height: auto;
+    height: auto;
+    position: relative;
+    z-index: 2;
 }
 
 .process-step:nth-child(1) { animation-delay: 0.1s; }
@@ -446,9 +467,14 @@
     font-weight: 700;
     color: var(--secondary-color);
     line-height: 1;
+    width: 80px;
     min-width: 80px;
-    text-align: center;
+    flex-shrink: 0;
+    text-align: left;
     transition: all var(--transition-base);
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
 }
 
 .process-step:hover .process-number {
@@ -458,6 +484,13 @@
 
 .process-content {
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    min-width: 0;
+    width: 100%;
+    max-width: 100%;
 }
 
 .process-title {
@@ -466,12 +499,136 @@
     font-weight: 700;
     color: var(--text-dark);
     margin-bottom: var(--spacing-sm);
+    width: 100%;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
 }
 
 .process-text {
     font-size: 1rem;
     color: var(--text-light);
     line-height: 1.8;
+    width: 100%;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%;
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
+    display: block;
+}
+
+/* Process Connector Line Animation */
+.process-connector-line {
+    position: absolute;
+    top: var(--spacing-xl);
+    height: calc(100% - var(--spacing-xl) * 2);
+    width: 8px;
+    background: repeating-linear-gradient(
+        to bottom,
+        rgba(6, 147, 227, 0.9) 0px,
+        rgba(6, 147, 227, 0.9) 12px,
+        transparent 12px,
+        transparent 24px
+    );
+    background-size: 8px 24px;
+    z-index: 1;
+    opacity: 0;
+    animation: drawLine 3s ease-in-out 0.5s forwards;
+    transform-origin: top;
+    pointer-events: none;
+    filter: drop-shadow(0 0 4px rgba(6, 147, 227, 0.5));
+}
+
+.process-connector-line-left {
+    left: 40px;
+}
+
+.process-connector-line-right {
+    right: 40px;
+}
+
+.process-connector-line-left::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(6, 147, 227, 1),
+        rgba(6, 147, 227, 0.8),
+        rgba(6, 147, 227, 1)
+    );
+    border-radius: 2px;
+    animation: travelPath 3s ease-in-out 0.5s forwards;
+    box-shadow: 0 0 12px rgba(6, 147, 227, 0.8);
+}
+
+.process-connector-line-right::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(6, 147, 227, 1),
+        rgba(6, 147, 227, 0.8),
+        rgba(6, 147, 227, 1)
+    );
+    border-radius: 2px;
+    animation: travelPath 3s ease-in-out 0.5s forwards;
+    box-shadow: 0 0 12px rgba(6, 147, 227, 0.8);
+}
+
+.process-connector-line-left::after {
+    display: none;
+}
+
+.process-connector-line-right::after {
+    display: none;
+}
+
+@keyframes drawLine {
+    0% {
+        opacity: 0;
+        transform: scaleY(0);
+    }
+    100% {
+        opacity: 1;
+        transform: scaleY(1);
+    }
+}
+
+@keyframes travelPath {
+    0% {
+        height: 0;
+        opacity: 0.8;
+    }
+    100% {
+        height: 100%;
+        opacity: 1;
+    }
+}
+
+@keyframes travelDot {
+    0% {
+        transform: translateY(-5px);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(calc(100% - 5px));
+        opacity: 1;
+    }
 }
 
 /* Responsive Design */
@@ -538,12 +695,57 @@
     }
     
     .process-step {
-        flex-direction: column;
-        text-align: center;
+        flex-direction: row;
+        text-align: left;
+        align-items: flex-start;
+        padding: var(--spacing-lg);
+        gap: var(--spacing-md);
     }
     
     .process-number {
-        min-width: auto;
+        width: 60px;
+        min-width: 60px;
+        font-size: 3rem;
+        text-align: left;
+        justify-content: flex-start;
+    }
+    
+    .process-content {
+        align-items: flex-start;
+        text-align: left;
+        flex: 1;
+        min-width: 0;
+    }
+    
+    .process-title {
+        font-size: 1.25rem;
+        text-align: left;
+    }
+    
+    .process-text {
+        font-size: 0.95rem;
+        text-align: left;
+    }
+    
+    .working-process-content {
+        padding: 0 var(--spacing-md);
+    }
+    
+    .process-connector-line {
+        width: 6px;
+    }
+    
+    .process-connector-line-left {
+        left: 30px;
+    }
+    
+    .process-connector-line-right {
+        right: 30px;
+    }
+    
+    .process-connector-line-left::after,
+    .process-connector-line-right::after {
+        display: none;
     }
 }
 
@@ -576,6 +778,50 @@
     
     .service-icon-code {
         font-size: 4rem;
+    }
+    
+    .process-step {
+        padding: var(--spacing-md);
+        gap: var(--spacing-sm);
+    }
+    
+    .process-number {
+        width: 50px;
+        min-width: 50px;
+        font-size: 2.5rem;
+    }
+    
+    .process-title {
+        font-size: 1.1rem;
+    }
+    
+    .process-text {
+        font-size: 0.9rem;
+    }
+    
+    .working-process-content {
+        padding: 0 var(--spacing-sm);
+    }
+    
+    .working-process-intro {
+        padding: 0 var(--spacing-sm);
+    }
+    
+    .process-connector-line {
+        width: 5px;
+    }
+    
+    .process-connector-line-left {
+        left: 25px;
+    }
+    
+    .process-connector-line-right {
+        right: 25px;
+    }
+    
+    .process-connector-line-left::after,
+    .process-connector-line-right::after {
+        display: none;
     }
 }
 
