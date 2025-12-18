@@ -685,3 +685,15 @@ document.addEventListener('mousemove', (e) => {
 console.log('%c Mangotrax Solutions ', 'background: #ff6900; color: #fff; font-size: 20px; font-weight: bold; padding: 10px;');
 console.log('%c Igniting Ideas, Inspiring Solutions ', 'color: #0693e3; font-size: 14px; font-weight: bold;');
 
+(function () {
+  const tab = document.getElementById("coffeeTab");
+  const dialog = document.getElementById("coffeeDialog");
+  const close = document.getElementById("cdClose");
+
+  /* 🔥 MOVE TO <html> TO BYPASS BODY TRANSFORMS */
+  document.documentElement.appendChild(tab);
+  document.documentElement.appendChild(dialog);
+
+  tab.onclick = () => dialog.classList.add("active");
+  close.onclick = () => dialog.classList.remove("active");
+})();
