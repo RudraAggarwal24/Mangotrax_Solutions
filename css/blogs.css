@@ -57,7 +57,7 @@
 .blogs-search-wrapper {
     display: flex;
     justify-content: center;
-    margin-bottom: var(--spacing-2xl);
+    margin-bottom: var(--spacing-lg);
 }
 
 .blogs-search {
@@ -112,19 +112,19 @@
 .blogs-filters {
     display: flex;
     justify-content: center;
-    gap: var(--spacing-sm);
-    flex-wrap: nowrap;
+    gap: var(--spacing-md);
+    flex-wrap: wrap;
     opacity: 0;
     animation: fadeIn 0.8s ease 0.8s forwards;
 }
 
 .blog-filter-btn {
-    padding: 12px 20px;
+    padding: 16px 32px;
     background: transparent;
     border: none;
     border-radius: 8px;
     font-family: var(--font-primary);
-    font-size: 1rem;
+    font-size: 1.3rem;
     font-weight: 700;
     color: var(--text-medium);
     cursor: pointer;
@@ -132,23 +132,6 @@
     position: relative;
     overflow: hidden;
     box-shadow: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.blog-filter-btn i {
-    font-size: 1.1rem;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    opacity: 0.7;
-    position: relative;
-    z-index: 1;
-    color: var(--primary-color);
-}
-
-.blog-filter-btn span {
-    position: relative;
-    z-index: 1;
 }
 
 .blog-filter-btn::before {
@@ -175,12 +158,6 @@
     transform: translateY(-2px);
 }
 
-.blog-filter-btn:hover i {
-    opacity: 1;
-    transform: scale(1.05);
-    color: var(--primary-color);
-}
-
 .blog-filter-btn.active {
     background: transparent;
     border: none;
@@ -189,20 +166,11 @@
     font-weight: 700;
 }
 
-.blog-filter-btn.active i {
-    color: var(--primary-color);
-    opacity: 1;
-}
-
 .blog-filter-btn.active:hover {
     color: var(--primary-dark);
     background: transparent;
     box-shadow: none;
     transform: translateY(-2px);
-}
-
-.blog-filter-btn.active:hover i {
-    color: var(--primary-dark);
 }
 
 /* Blogs Grid Section */
@@ -388,11 +356,6 @@
     .blog-filter-btn {
         padding: 14px 26px;
         font-size: 1.15rem;
-        gap: 8px;
-    }
-    
-    .blog-filter-btn i {
-        font-size: 1.25rem;
     }
 }
 
@@ -417,11 +380,6 @@
     .blog-filter-btn {
         padding: 12px 20px;
         font-size: 1rem;
-        gap: 6px;
-    }
-    
-    .blog-filter-btn i {
-        font-size: 1.1rem;
     }
 }
 
