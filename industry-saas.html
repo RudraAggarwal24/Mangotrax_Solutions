@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AI SaaS development and AI for SaaS growth. Scalable digital platforms and growth systems for SaaS companies focused on activation, churn risk, and feature adoption.">
+    <title>SaaS & Technology - AI SaaS Development | Mangotrax Solutions LLP</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/services.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loader" class="loader">
+        <div class="loader-spinner"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <div class="nav-brand">
+                <a href="index.html" class="logo">
+                    <img src="images/TEXT-LOGO-light.png" alt="Mangotrax Solutions" class="logo-img">
+                </a>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                <li class="nav-item has-dropdown">
+                    <a href="services.html" class="nav-link">Services <span class="dropdown-icon">▼</span></a>
+                    <ul class="dropdown-menu dropdown-simple">
+                        <li><a href="ai-digital-marketing.html" class="dropdown-item-simple"><i class="fas fa-bullhorn dropdown-mini-icon"></i>AI-Driven Digital Marketing</a></li>
+                        <li><a href="ai-web-design-development.html" class="dropdown-item-simple"><i class="fas fa-laptop-code dropdown-mini-icon"></i>AI-Enabled Web Design & Web Solutions</a></li>
+                        <li><a href="ai-mobile-app-development.html" class="dropdown-item-simple"><i class="fas fa-mobile-alt dropdown-mini-icon"></i>AI-Powered Mobile App Development</a></li>
+                        <li><a href="custom-software-development.html" class="dropdown-item-simple"><i class="fas fa-cogs dropdown-mini-icon"></i>Custom Software Development with AI</a></li>
+                        <li><a href="ai-event-management.html" class="dropdown-item-simple"><i class="fas fa-calendar-alt dropdown-mini-icon"></i>AI-Enhanced Event Management & Accessories</a></li>
+                        <li class="dropdown-divider"></li>
+                        <li><a href="services.html" class="dropdown-item-simple dropdown-item-highlight"><i class="fas fa-th dropdown-mini-icon"></i>View All Services</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a href="intelligent-solutions.html" class="nav-link">Intelligent Solutions</a></li>
+                <li class="nav-item has-dropdown">
+                    <a href="industries.html" class="nav-link active">Industries <span class="dropdown-icon">▼</span></a>
+                    <ul class="dropdown-menu dropdown-simple">
+                        <li><a href="industry-education.html" class="dropdown-item-simple"><i class="fas fa-graduation-cap dropdown-mini-icon"></i>Education & EdTech</a></li>
+                        <li><a href="industry-saas.html" class="dropdown-item-simple"><i class="fas fa-cloud dropdown-mini-icon"></i>SaaS & Technology</a></li>
+                        <li><a href="industry-healthcare.html" class="dropdown-item-simple"><i class="fas fa-heartbeat dropdown-mini-icon"></i>Healthcare</a></li>
+                        <li><a href="industry-retail.html" class="dropdown-item-simple"><i class="fas fa-shopping-bag dropdown-mini-icon"></i>Retail</a></li>
+                        <li><a href="industry-manufacturing.html" class="dropdown-item-simple"><i class="fas fa-industry dropdown-mini-icon"></i>Manufacturing</a></li>
+                        <li><a href="industry-ecommerce.html" class="dropdown-item-simple"><i class="fas fa-shopping-cart dropdown-mini-icon"></i>E-commerce</a></li>
+                        <li class="dropdown-divider"></li>
+                        <li><a href="industries.html" class="dropdown-item-simple dropdown-item-highlight"><i class="fas fa-th dropdown-mini-icon"></i>View All Industries</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item has-dropdown">
+                    <a href="showcase.html" class="nav-link">Case Studies <span class="dropdown-icon">▼</span></a>
+                    <ul class="dropdown-menu dropdown-simple">
+                        <li><a href="showcase.html" class="dropdown-item-simple"><i class="fas fa-briefcase dropdown-mini-icon"></i>Case Study – SaaS</a></li>
+                        <li><a href="https://www.mangotrax.com/?page_id=17357" target="_blank" class="dropdown-item-simple"><i class="fas fa-book-open dropdown-mini-icon"></i>Case Study – Ed-Tech</a></li>
+                        <li><a href="https://www.mangotrax.com/?page_id=17400" target="_blank" class="dropdown-item-simple"><i class="fas fa-stethoscope dropdown-mini-icon"></i>Case Study – Healthcare</a></li>
+                        <li><a href="https://www.mangotrax.com/?page_id=17419" target="_blank" class="dropdown-item-simple"><i class="fas fa-film dropdown-mini-icon"></i>Case Study – Entertainment</a></li>
+                        <li class="dropdown-divider"></li>
+                        <li><a href="showcase.html" class="dropdown-item-simple dropdown-item-highlight"><i class="fas fa-th dropdown-mini-icon"></i>View All Case Studies</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a href="blogs.html" class="nav-link">Insights</a></li>
+                <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+    <div id="coffeeTab">Connect With Us</div>
+
+<div id="coffeeDialog">
+  <div class="cd-header">
+    <span>Let's discuss your project</span>
+    <button id="cdClose">✕</button>
+  </div>
+
+  <form class="cd-form">
+    <input placeholder="Full Name" required>
+    <input type="email" placeholder="Email" required>
+    <input placeholder="Phone No.">
+    <textarea placeholder="Tell us about your requirements"></textarea>
+    <button type="submit">Submit</button>
+  </form>
+</div>
+
+    <!-- Industry Hero Section -->
+    <section class="service-detail-hero">
+        <div class="container">
+            <div class="service-detail-hero-content fade-in">
+                <h2 class="service-detail-label">Industry</h2>
+                <h1 class="service-detail-title">Product-Led Growth Focus</h1>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industry Main Content -->
+    <section class="service-detail-main">
+        <div class="container">
+            <div class="service-detail-content">
+                <div class="service-detail-image-wrapper fade-in">
+                    <img src="images/Gemini_Generated_Image_c3rwbxc3rwbxc3rw.png" alt="SaaS & Technology" class="service-detail-image">
+                </div>
+                <div class="service-detail-text-wrapper fade-in-delay-1">
+                    <h3 class="service-detail-subtitle">Scalable digital platforms and growth systems that communicate value, onboard users effectively, and support sustainable expansion.</h3>
+                    <p class="service-detail-description">We work with SaaS and technology companies to design digital platforms, optimise user journeys, and support growth through data-informed systems. Our focus is on building clarity into complex products and ensuring systems scale reliably.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industry Challenges Section -->
+    <section class="business-problem">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Industry Challenges</h2>
+            </div>
+            <div class="problem-content">
+                <p class="problem-description">SaaS companies struggle to build products that activate users, reduce churn, and drive feature adoption. Onboarding flows lack clear performance visibility, user engagement data is fragmented, and product decisions are made without understanding which features drive retention and expansion.</p>
+                <p class="problem-description">The challenge is creating product experiences that balance complexity with usability while providing clear insight into what drives sustainable growth.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How Intelligent Systems Are Applied Section -->
+    <section class="how-ai-applied">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">How Intelligent Systems Are Applied</h2>
+                <p class="section-description">Intelligence is embedded into how we design, develop, and optimise SaaS platforms.</p>
+            </div>
+            <div class="ai-applied-grid">
+                <div class="ai-applied-item">
+                    <div class="ai-applied-icon">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="ai-applied-title">User Activation Tracking</h3>
+                    <p class="ai-applied-description">User behavior data reveals which onboarding touchpoints drive activation, enabling data-driven improvements to user journeys.</p>
+                </div>
+                <div class="ai-applied-item">
+                    <div class="ai-applied-icon">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+                        </svg>
+                    </div>
+                    <h3 class="ai-applied-title">Churn Risk Analysis</h3>
+                    <p class="ai-applied-description">Usage patterns identify users at risk of churning, enabling proactive interventions that improve retention.</p>
+                </div>
+                <div class="ai-applied-item">
+                    <div class="ai-applied-icon">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="ai-applied-title">Feature Adoption Metrics</h3>
+                    <p class="ai-applied-description">Product analytics show which features drive engagement and retention, guiding feature prioritisation and development.</p>
+                </div>
+                <div class="ai-applied-item">
+                    <div class="ai-applied-icon">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+                        </svg>
+                    </div>
+                    <h3 class="ai-applied-title">Product Analytics</h3>
+                    <p class="ai-applied-description">Usage data informs product roadmap decisions and identifies opportunities to improve user experience and business outcomes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solutions Delivered Section -->
+    <section class="what-we-deliver">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Solutions Delivered</h2>
+            </div>
+            <div class="deliverables-content">
+                <p class="deliverables-description">We deliver SaaS technology solutions designed to improve product experiences, support growth objectives, and remain maintainable as requirements evolve.</p>
+                <div class="deliverables-list">
+                    <div class="deliverable-item">
+                        <div class="deliverable-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h4 class="deliverable-title">Product Websites and Onboarding Experiences</h4>
+                        <p class="deliverable-description">Web platforms that communicate value and support user activation.</p>
+                    </div>
+                    <div class="deliverable-item">
+                        <div class="deliverable-icon">
+                            <i class="fas fa-bullhorn"></i>
+                        </div>
+                        <h4 class="deliverable-title">Marketing and Growth Systems</h4>
+                        <p class="deliverable-description">Digital marketing systems focused on customer acquisition and retention.</p>
+                    </div>
+                    <div class="deliverable-item">
+                        <div class="deliverable-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h4 class="deliverable-title">Analytics, Reporting, and Workflow Automation</h4>
+                        <p class="deliverable-description">Systems that provide visibility into product performance and operational efficiency.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- KPIs We Track Section -->
+    <section class="service-kpis">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">KPIs We Track</h2>
+            </div>
+            <div class="kpi-grid">
+                <div class="kpi-card">
+                    <div class="kpi-icon">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="kpi-title">Activation</h3>
+                    <p class="kpi-description">Measuring the percentage of users who complete key onboarding milestones that indicate product adoption.</p>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-icon">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="kpi-title">Churn Risk</h3>
+                    <p class="kpi-description">Identifying users at risk of churning based on usage patterns and engagement metrics.</p>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-icon">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+                        </svg>
+                    </div>
+                    <h3 class="kpi-title">Feature Adoption</h3>
+                    <p class="kpi-description">Tracking how effectively users discover and use product features that drive value.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Who This Is For Section -->
+    <section class="who-services-for">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Who This Is For</h2>
+            </div>
+            <div class="use-cases-grid">
+                <div class="use-case-card">
+                    <div class="use-case-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3 class="use-case-title">SaaS Companies</h3>
+                    <p class="use-case-description">Building product platforms and growth systems</p>
+                </div>
+                <div class="use-case-card">
+                    <div class="use-case-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3 class="use-case-title">Technology Startups</h3>
+                    <p class="use-case-description">Scaling digital platforms and user experiences</p>
+                </div>
+                <div class="use-case-card">
+                    <div class="use-case-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="use-case-title">Product-Led Organisations</h3>
+                    <p class="use-case-description">Seeking better visibility into product performance and growth</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Services Section -->
+    <section class="related-services">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Related Services</h2>
+            </div>
+            <div class="related-services-grid">
+                <div class="related-service-card">
+                    <h4 class="related-service-title"><a href="ai-digital-marketing.html">AI-Driven Digital Marketing</a></h4>
+                    <p class="related-service-description">Customer acquisition and growth marketing systems.</p>
+                </div>
+                <div class="related-service-card">
+                    <h4 class="related-service-title"><a href="ai-web-design-development.html">AI-Enabled Web & Platform Solutions</a></h4>
+                    <p class="related-service-description">Product websites and onboarding platforms.</p>
+                </div>
+                <div class="related-service-card">
+                    <h4 class="related-service-title"><a href="custom-software-development.html">Custom Software Development</a></h4>
+                    <p class="related-service-description">Product analytics and workflow automation systems.</p>
+                </div>
+                <div class="related-service-card">
+                    <h4 class="related-service-title"><a href="showcase.html">Case Studies</a></h4>
+                    <p class="related-service-description">Explore our work in SaaS and technology.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="final-cta">
+        <div class="container">
+            <div class="final-cta-content">
+                <h2 class="final-cta-title">Build Better SaaS Platforms</h2>
+                <p class="final-cta-description">If you're evaluating digital solutions for SaaS and need a partner focused on product-led growth, user activation, and sustainable scaling, Mangotrax Solutions LLP is ready to discuss how we can support your SaaS objectives.</p>
+                <div class="final-cta-buttons">
+                    <a href="contact.html" class="btn btn-primary btn-large">Start a Conversation</a>
+                    <a href="industries.html" class="btn btn-outline btn-large">View All Industries</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <!-- Column 1: Company -->
+                <div class="footer-col footer-col-company">
+                    <div class="footer-logo">
+                        <img src="images/TEXT-LOGO-light.png" alt="Mangotrax Solutions LLP">
+                    </div>
+                    <p class="footer-description">Mangotrax Solutions LLP delivers intelligent digital solutions across marketing systems, web platforms, mobile applications, custom software, and technology-enabled experiences — focused on clarity, execution, and scalable growth.</p>
+                </div>
+
+                <!-- Column 2: Services -->
+                <div class="footer-col">
+                    <h4 class="footer-heading">Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="ai-digital-marketing.html">AI-Driven Digital Marketing</a></li>
+                        <li><a href="ai-web-design-development.html">AI-Enabled Web Design & Web Solutions</a></li>
+                        <li><a href="ai-mobile-app-development.html">AI-Powered Mobile App Development</a></li>
+                        <li><a href="custom-software-development.html">Custom Software Development with AI</a></li>
+                        <li><a href="ai-event-management.html">AI-Enhanced Event Management</a></li>
+                        <li><a href="services.html" class="footer-link-highlight">View All Services →</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Industries -->
+                <div class="footer-col">
+                    <h4 class="footer-heading">Industries</h4>
+                    <ul class="footer-links">
+                        <li><a href="industry-education.html">Education & EdTech</a></li>
+                        <li><a href="industry-saas.html">SaaS & Technology</a></li>
+                        <li><a href="industry-healthcare.html">Healthcare</a></li>
+                        <li><a href="industry-retail.html">Retail</a></li>
+                        <li><a href="industry-manufacturing.html">Manufacturing</a></li>
+                        <li><a href="industry-ecommerce.html">E-commerce</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Company -->
+                <div class="footer-col">
+                    <h4 class="footer-heading">Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="intelligent-solutions.html">Intelligent Solutions</a></li>
+                        <li><a href="showcase.html">Case Studies</a></li>
+                        <li><a href="blogs.html">Insights</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="footer-bottom">
+                <div class="footer-bottom-left">
+                    <p>&copy; 2026 Mangotrax Solutions LLP. All rights reserved.</p>
+                </div>
+                <div class="footer-bottom-right">
+                    <a href="https://www.mangotrax.com/privacy-policy/" target="_blank">Privacy Policy</a>
+                    <span class="footer-divider">|</span>
+                    <a href="https://www.mangotrax.com/terms-conditions/" target="_blank">Terms of Use</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Consultation Modal -->
+    <div id="consultation-modal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <h2>Schedule a Discussion</h2>
+            <p>Share your requirements and our team will reach out to discuss how we can support your initiative.</p>
+            <form class="consultation-form" id="consultation-form">
+                <div class="form-group">
+                    <label for="name">Your name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Brief Description</label>
+                    <textarea id="message" name="message" rows="3" placeholder="What would you like to discuss?"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary btn-large">Submit Request</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
