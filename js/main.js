@@ -272,7 +272,7 @@ const observer = new IntersectionObserver((entries) => {
 }, observerOptions);
 
 // Observe all animated elements
-document.querySelectorAll('.stat-card, .service-card, .testimonial-card, .blog-card, .case-card, .client-logo').forEach(el => {
+document.querySelectorAll('.stat-card, .service-card, .testimonial-card, .blog-card, .case-card, .client-logo, .intelligence-block, .industry-card, .kpi-card, .why-card, .who-point, .mission-card, .vision-card, .process-step, .engagement-step, .capability-item, .use-case-card, .engagement-step-services, .why-services-card, .case-study-item, .structure-item, .industry-badge, .why-case-card, .engagement-option, .detail-item, .next-step, .category-item, .featured-item, .insight-card, .usage-point, .pillar-item, .applied-item, .practice-item, .benefit-item, .industry-item, .adapt-principle, .capability-industry').forEach(el => {
     if (!el.classList.contains('animated')) {
         observer.observe(el);
     }
