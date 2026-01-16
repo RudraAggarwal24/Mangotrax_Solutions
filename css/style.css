@@ -214,11 +214,11 @@ body::after {
    Header & Navigation
    ============================================ */
 .header {
-    position: fixed;
+     position: fixed;
     top: 0;
     left: 0;
-    right: 0;
     width: 100%;
+    z-index: 9999;
     z-index: 1000;
     /* Clean and professional design */
     background: rgba(255, 255, 255, 0.95);
@@ -3632,7 +3632,7 @@ html {
 
 .industries-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(3, 2fr);
     gap: var(--spacing-lg);
     margin-top: var(--spacing-2xl);
 }
@@ -3862,7 +3862,7 @@ html {
     }
     
     .industries-grid {
-        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        grid-template-columns: repeat(2,1fr);
     }
     
     .kpi-grid {
