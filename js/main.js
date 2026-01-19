@@ -530,7 +530,7 @@ if ('IntersectionObserver' in window) {
 // WhatsApp Button
 // ============================================
 const whatsappBtn = document.createElement('a');
-whatsappBtn.href = 'https://wa.link/v4pl84';
+whatsappBtn.href = 'https://wa.link/o1cjpc';
 whatsappBtn.target = '_blank';
 whatsappBtn.rel = 'noopener noreferrer';
 whatsappBtn.className = 'whatsapp-btn';
