@@ -1,0 +1,518 @@
+/* ============================================
+   App Development Page - Modern Design
+   ============================================ */
+
+/* Hero Section */
+.app-hero {
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding: 140px 0 80px;
+}
+
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+}
+
+.hero-gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, #001f3f 0%, #003366 50%, #001f3f 100%);
+}
+
+.hero-pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 30%, rgba(255, 145, 71, 0.15), transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(6, 147, 227, 0.15), transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.05), transparent 60%);
+    animation: patternPulse 10s ease-in-out infinite;
+}
+
+@keyframes patternPulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+.hero-content-wrapper {
+    position: relative;
+    z-index: 10;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.hero-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 10px 24px;
+    border-radius: 50px;
+    color: white;
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin-bottom: 32px;
+    animation: fadeInDown 0.8s ease-out;
+}
+
+.hero-label i {
+    color: #ff9147;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-main-title {
+    font-size: clamp(2.5rem, 7vw, 4.5rem);
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 24px;
+    animation: fadeInUp 0.8s ease-out 0.2s backwards;
+}
+
+.title-line {
+    display: block;
+    color: white;
+}
+
+.gradient-text {
+    color: #ff9147;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-subtitle {
+    font-size: clamp(1.3rem, 2.5vw, 1.75rem);
+    color: rgba(255, 255, 255, 0.95);
+    font-weight: 600;
+    margin-bottom: 24px;
+    animation: fadeInUp 0.8s ease-out 0.3s backwards;
+}
+
+.hero-lead {
+    font-size: clamp(1.1rem, 2vw, 1.25rem);
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 800px;
+    margin: 0 auto 16px;
+    animation: fadeInUp 0.8s ease-out 0.4s backwards;
+}
+
+.hero-description {
+    font-size: clamp(1rem, 1.8vw, 1.15rem);
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.85);
+    max-width: 850px;
+    margin: 0 auto;
+    animation: fadeInUp 0.8s ease-out 0.5s backwards;
+}
+
+/* Section Headers */
+.section-header-new {
+    margin-bottom: 60px;
+}
+
+.section-header-new.center {
+    text-align: center;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 60px;
+}
+
+.section-label {
+    display: inline-block;
+    background: linear-gradient(135deg, rgba(255, 145, 71, 0.1) 0%, rgba(6, 147, 227, 0.1) 100%);
+    color: #ff9147;
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+}
+
+.section-label.white {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.section-title-new {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 800;
+    color: var(--text-dark);
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.section-title-new.white {
+    color: white;
+}
+
+/* What We Deliver Section */
+.what-we-deliver {
+    padding: 120px 20px;
+    background: white;
+}
+
+.deliver-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.deliver-card {
+    background: white;
+    padding: 40px 32px;
+    border-radius: 20px;
+    border: 2px solid var(--border-light);
+    transition: all 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-height: 260px;
+}
+
+.deliver-card:hover {
+    border-color: #ff9147;
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(255, 145, 71, 0.15);
+}
+
+.deliver-icon {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 24px;
+    background: #ff9147;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.75rem;
+    transition: all 0.4s ease;
+}
+
+.deliver-card:hover .deliver-icon {
+    transform: scale(1.1);
+}
+
+.deliver-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 16px;
+    line-height: 1.4;
+}
+
+.deliver-description {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--text-medium);
+    margin: 0;
+}
+
+/* Intelligence Applied Section */
+.intelligence-applied {
+    padding: 120px 20px;
+    background: linear-gradient(180deg, #f8f9fa 0%, white 100%);
+}
+
+.intelligence-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.intelligence-card {
+    background: white;
+    padding: 40px 32px;
+    border-radius: 20px;
+    border: 2px solid var(--border-light);
+    transition: all 0.4s ease;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 320px;
+}
+
+.intelligence-card:hover {
+    border-color: #ff9147;
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(255, 145, 71, 0.12);
+}
+
+.intelligence-icon {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 24px;
+    background: #ff9147;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 2rem;
+    transition: all 0.4s ease;
+}
+
+.intelligence-card:hover .intelligence-icon {
+    transform: rotateY(360deg);
+}
+
+.intelligence-card-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 16px;
+}
+
+.intelligence-card-text {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--text-medium);
+    margin: 0;
+}
+
+/* KPIs Section */
+.kpis-section {
+    padding: 120px 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.kpi-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, #001f3f 0%, #003366 50%, #001f3f 100%);
+    z-index: 0;
+}
+
+.kpi-background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 30%, rgba(255, 145, 71, 0.15), transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(99, 102, 241, 0.15), transparent 50%);
+}
+
+.kpi-content {
+    position: relative;
+    z-index: 10;
+}
+
+.kpi-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.kpi-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 40px 32px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.kpi-card:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-8px);
+}
+
+.kpi-icon {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 24px;
+    background: #ff9147;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.75rem;
+}
+
+.kpi-card-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 16px;
+}
+
+.kpi-card-text {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.85);
+    margin: 0;
+}
+
+/* CTA Section */
+.cta-section {
+    padding: 120px 20px;
+    background: linear-gradient(135deg, rgba(255, 145, 71, 0.05) 0%, rgba(6, 147, 227, 0.05) 100%);
+}
+
+.cta-content {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.cta-title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 800;
+    color: var(--text-dark);
+    margin-bottom: 24px;
+    line-height: 1.2;
+}
+
+.cta-description {
+    font-size: 1.2rem;
+    line-height: 1.7;
+    color: var(--text-medium);
+    margin-bottom: 48px;
+}
+
+.btn-large {
+    padding: 18px 40px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.btn-primary {
+    background: #ff9147;
+    color: white;
+    border: none;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(255, 145, 71, 0.4);
+}
+
+/* Footer Tagline */
+.footer-tagline-bottom {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    line-height: 1.6;
+    margin: 16px 0 24px;
+    font-style: italic;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .deliver-grid {
+        grid-template-columns: 1fr;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    
+    .intelligence-grid {
+        grid-template-columns: 1fr;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    
+    .kpi-cards {
+        grid-template-columns: 1fr;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .app-hero {
+        padding: 120px 20px 60px;
+        min-height: 80vh;
+    }
+    
+    .what-we-deliver,
+    .intelligence-applied,
+    .kpis-section,
+    .cta-section {
+        padding: 80px 20px;
+    }
+    
+    .deliver-card,
+    .intelligence-card {
+        min-height: auto;
+        padding: 32px 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .app-hero {
+        padding: 100px 20px 40px;
+    }
+    
+    .hero-label {
+        font-size: 0.85rem;
+        padding: 8px 16px;
+    }
+    
+    .deliver-icon,
+    .intelligence-icon,
+    .kpi-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+}
