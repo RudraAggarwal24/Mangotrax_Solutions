@@ -158,16 +158,16 @@
 
 /* Mission Vision Quick Cards */
 .mission-vision-quick {
-    padding: 0 20px;
-    margin-top: -60px;
+    padding: 80px 20px;
     position: relative;
     z-index: 20;
+    background: #f8f9fa;
 }
 
 .mv-quick-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 32px;
+    gap: 40px;
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -208,16 +208,25 @@
 }
 
 .mv-quick-icon {
-    width: 60px;
-    height: 60px;
-    border-radius: 14px;
-    background: linear-gradient(135deg, #ff6900 0%, #0693e3 100%);
+    width: 70px;
+    height: 70px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #ff9147 0%, #0693e3 100%);
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     flex-shrink: 0;
+    box-shadow: 0 8px 24px rgba(255, 145, 71, 0.3);
+}
+
+.mission-card .mv-quick-icon {
+    background: linear-gradient(135deg, #ffd700 0%, #ff9147 100%);
+}
+
+.vision-card .mv-quick-icon {
+    background: linear-gradient(135deg, #0693e3 0%, #667eea 100%);
 }
 
 .mv-quick-content {
@@ -879,8 +888,7 @@
     }
     
     .mission-vision-quick {
-        margin-top: -40px;
-        padding: 0 20px;
+        padding: 60px 20px;
     }
     
     .mv-quick-grid {
