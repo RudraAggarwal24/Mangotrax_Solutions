@@ -441,6 +441,23 @@
 }
 
 /* Responsive Design */
+/* Tablet Styles (768px - 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .contact-wrapper {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-2xl);
+    }
+    
+    .contact-form-section,
+    .contact-info-section {
+        padding: var(--spacing-xl) 0;
+    }
+    
+    .form-container {
+        padding: var(--spacing-xl);
+    }
+}
+
 @media (max-width: 768px) {
     .contact-hero {
         padding: 120px 0 var(--spacing-2xl);

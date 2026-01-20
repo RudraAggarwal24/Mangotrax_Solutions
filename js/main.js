@@ -689,11 +689,64 @@ console.log('%c Igniting Ideas, Inspiring Solutions ', 'color: #0693e3; font-siz
   const tab = document.getElementById("coffeeTab");
   const dialog = document.getElementById("coffeeDialog");
   const close = document.getElementById("cdClose");
+  const quoteForm = document.getElementById("quote-form");
 
-  /* 🔥 MOVE TO <html> TO BYPASS BODY TRANSFORMS */
-  document.documentElement.appendChild(tab);
-  document.documentElement.appendChild(dialog);
+  if (tab && dialog) {
+    /* 🔥 MOVE TO <html> TO BYPASS BODY TRANSFORMS */
+    if (tab.parentNode !== document.documentElement) {
+      document.documentElement.appendChild(tab);
+    }
+    if (dialog.parentNode !== document.documentElement) {
+      document.documentElement.appendChild(dialog);
+    }
 
-  tab.onclick = () => dialog.classList.add("active");
-  close.onclick = () => dialog.classList.remove("active");
+    // Open modal
+    tab.onclick = () => {
+      dialog.classList.add("active");
+      document.body.style.overflow = "hidden";
+    };
+
+    // Close modal
+    if (close) {
+      close.onclick = () => {
+        dialog.classList.remove("active");
+        document.body.style.overflow = "";
+      };
+    }
+
+    // Close on backdrop click
+    dialog.addEventListener("click", (e) => {
+      if (e.target === dialog) {
+        dialog.classList.remove("active");
+        document.body.style.overflow = "";
+      }
+    });
+
+    // Close on Escape key
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && dialog.classList.contains("active")) {
+        dialog.classList.remove("active");
+        document.body.style.overflow = "";
+      }
+    });
+
+    // Form submission
+    if (quoteForm) {
+      quoteForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const formData = new FormData(quoteForm);
+        const data = Object.fromEntries(formData);
+        
+        // Show success message
+        alert("Thank you! We will contact you soon.");
+        
+        // Reset form
+        quoteForm.reset();
+        
+        // Close modal
+        dialog.classList.remove("active");
+        document.body.style.overflow = "";
+      });
+    }
+  }
 })();

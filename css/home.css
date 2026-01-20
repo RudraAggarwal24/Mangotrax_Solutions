@@ -818,6 +818,51 @@
 }
 
 /* Responsive Design */
+/* Tablet Styles (768px - 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .home-hero {
+        padding: 130px 20px 80px;
+    }
+    
+    .services-grid-home {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-md);
+    }
+    
+    .industries-grid-home {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-md);
+    }
+    
+    .why-grid-home {
+        grid-template-columns: 1fr;
+        max-width: 700px;
+        margin: 0 auto;
+    }
+    
+    .intelligence-content-wrapper {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+    
+    .kpi-list {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 800px;
+        gap: var(--spacing-md);
+    }
+    
+    .hero-buttons {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: var(--spacing-md);
+    }
+    
+    .btn-large {
+        flex: 1;
+        min-width: 200px;
+    }
+}
+
 @media (max-width: 1200px) {
     .services-grid-home {
         grid-template-columns: repeat(2, 1fr);

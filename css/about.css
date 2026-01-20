@@ -846,6 +846,47 @@
     }
 }
 
+/* Tablet Styles (768px - 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .about-hero-new {
+        padding: 130px 0 80px;
+    }
+    
+    .hero-stats {
+        gap: 30px;
+        flex-wrap: wrap;
+    }
+    
+    .mv-quick-grid {
+        grid-template-columns: 1fr;
+        max-width: 700px;
+    }
+    
+    .focus-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-lg);
+    }
+    
+    .intelligence-blocks {
+        grid-template-columns: 1fr;
+        max-width: 700px;
+    }
+    
+    .industries-grid-new {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-md);
+    }
+    
+    .why-grid-new {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-md);
+    }
+    
+    .team-grid-new {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 @media (max-width: 1024px) {
     .hero-stats {
         gap: 40px;

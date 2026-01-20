@@ -87,14 +87,11 @@ body {
     color: var(--text-dark);
     line-height: 1.6;
     overflow-x: hidden;
-    overflow-y: hidden;
     background: var(--bg-gradient);
     background-attachment: fixed;
-    transform: scale(0.8);
-    transform-origin: top left;
-    width: 125%;
     margin: 0;
     position: relative;
+    width: 100%;
 }
 
 /* Hide scrollbar on body - only html should scroll */
@@ -4327,3 +4324,409 @@ html {
     }
 }
 
+/* ============================================
+   Enhanced Responsive Design - Tablet & Mobile
+   ============================================ */
+
+/* Tablet Styles (768px - 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .container {
+        padding: 0 24px;
+        max-width: 100%;
+    }
+    
+    .nav {
+        padding: var(--spacing-sm) 24px;
+    }
+    
+    .nav-menu {
+        gap: 1.5rem;
+    }
+    
+    .nav-link {
+        font-size: 0.9rem;
+    }
+    
+    .logo-img {
+        height: 45px;
+    }
+    
+    /* Hero adjustments */
+    .hero-title {
+        font-size: 2.75rem;
+    }
+    
+    .hero-description {
+        font-size: 1.1rem;
+    }
+    
+    /* Grid adjustments */
+    .services-grid,
+    .blog-grid,
+    .cases-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-md);
+    }
+    
+    .intelligence-grid,
+    .why-grid,
+    .kpi-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-md);
+    }
+    
+    /* Cards */
+    .service-card,
+    .blog-card,
+    .case-card {
+        padding: var(--spacing-lg);
+    }
+    
+    /* Buttons */
+    .hero-cta,
+    .final-cta-buttons {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: var(--spacing-md);
+    }
+    
+    .hero-cta .btn,
+    .final-cta-buttons .btn {
+        flex: 1;
+        min-width: 200px;
+    }
+}
+
+/* Mobile Styles (< 768px) */
+@media (max-width: 767px) {
+    html {
+        font-size: 15px;
+    }
+    
+    .container {
+        padding: 0 16px;
+        max-width: 100%;
+    }
+    
+    /* Header & Navigation */
+    .header {
+        padding: 0;
+    }
+    
+    .nav {
+        padding: var(--spacing-sm) 16px;
+        height: 70px;
+    }
+    
+    .nav-brand {
+        margin-right: 0;
+    }
+    
+    .logo-img {
+        height: 40px;
+    }
+    
+    .nav-toggle {
+        display: flex;
+        z-index: 10001;
+    }
+    
+    .nav-menu {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        width: 100%;
+        max-width: 100%;
+        height: calc(100vh - 70px);
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(248, 250, 252, 0.98) 100%);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: var(--spacing-lg) 16px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        gap: var(--spacing-xs);
+        overflow-y: auto;
+        overflow-x: hidden;
+        z-index: 10000;
+    }
+    
+    .nav-menu.active {
+        left: 0;
+    }
+    
+    .nav-item {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .nav-link {
+        width: 100%;
+        padding: var(--spacing-md) var(--spacing-lg);
+        font-size: 1rem;
+        font-weight: 500;
+        border-radius: var(--radius-md);
+        margin-bottom: var(--spacing-xs);
+    }
+    
+    /* Dropdown menus in mobile */
+    .dropdown-menu {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        box-shadow: none;
+        background: transparent;
+        padding: var(--spacing-xs) 0;
+        margin-top: var(--spacing-xs);
+        margin-left: var(--spacing-lg);
+        width: calc(100% - var(--spacing-lg));
+        min-width: auto;
+    }
+    
+    .dropdown-item {
+        padding: var(--spacing-sm) var(--spacing-md);
+        font-size: 0.95rem;
+    }
+    
+    /* Hero Section */
+    .hero {
+        padding: 90px 0 var(--spacing-xl);
+        min-height: auto;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+        line-height: 1.2;
+        margin-bottom: var(--spacing-md);
+    }
+    
+    .hero-description {
+        font-size: 1rem;
+        line-height: 1.6;
+        margin-bottom: var(--spacing-lg);
+    }
+    
+    .hero-cta {
+        flex-direction: column;
+        gap: var(--spacing-md);
+        width: 100%;
+    }
+    
+    .hero-cta .btn {
+        width: 100%;
+        padding: var(--spacing-md) var(--spacing-lg);
+    }
+    
+    /* Grids - Single column on mobile */
+    .services-grid,
+    .blog-grid,
+    .cases-grid,
+    .intelligence-grid,
+    .why-grid,
+    .kpi-grid,
+    .industries-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+    
+    /* Cards */
+    .service-card,
+    .blog-card,
+    .case-card,
+    .intelligence-card,
+    .why-card,
+    .kpi-card {
+        padding: var(--spacing-lg);
+    }
+    
+    /* Section spacing */
+    .services,
+    .intelligence,
+    .industries,
+    .kpi-highlights,
+    .why-mangotrax,
+    .final-cta {
+        padding: var(--spacing-xl) 0;
+    }
+    
+    /* Typography */
+    .section-title {
+        font-size: 1.75rem;
+    }
+    
+    .section-description {
+        font-size: 1rem;
+    }
+    
+    /* Buttons */
+    .btn {
+        padding: var(--spacing-sm) var(--spacing-lg);
+        font-size: 0.9rem;
+    }
+    
+    .btn-large {
+        padding: var(--spacing-md) var(--spacing-xl);
+        font-size: 1rem;
+    }
+    
+    /* Footer */
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-xl);
+    }
+    
+    .footer-bottom {
+        flex-direction: column;
+        gap: var(--spacing-md);
+        text-align: center;
+    }
+    
+    /* Stats grid */
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-md);
+    }
+    
+    /* Testimonials */
+    .testimonials-slider {
+        padding: 0;
+    }
+    
+    .testimonials-slider .testimonial-card {
+        min-width: 100%;
+        padding: var(--spacing-lg);
+    }
+    
+    /* Clients grid */
+    .clients-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-md);
+    }
+    
+    /* Final CTA */
+    .final-cta-title {
+        font-size: 1.75rem;
+    }
+    
+    .final-cta-description {
+        font-size: 1rem;
+    }
+    
+    .final-cta-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .final-cta-buttons .btn {
+        width: 100%;
+    }
+}
+
+/* Small Mobile Devices (< 480px) */
+@media (max-width: 480px) {
+    html {
+        font-size: 14px;
+    }
+    
+    .container {
+        padding: 0 12px;
+    }
+    
+    .nav {
+        padding: var(--spacing-xs) 12px;
+        height: 65px;
+    }
+    
+    .nav-menu {
+        top: 65px;
+        height: calc(100vh - 65px);
+        padding: var(--spacing-md) 12px;
+    }
+    
+    .logo-img {
+        height: 35px;
+    }
+    
+    .hero {
+        padding: 80px 0 var(--spacing-lg);
+    }
+    
+    .hero-title {
+        font-size: 1.75rem;
+    }
+    
+    .hero-description {
+        font-size: 0.95rem;
+    }
+    
+    .section-title {
+        font-size: 1.5rem;
+    }
+    
+    .section-description {
+        font-size: 0.95rem;
+    }
+    
+    .service-card,
+    .blog-card,
+    .case-card,
+    .intelligence-card,
+    .why-card,
+    .kpi-card {
+        padding: var(--spacing-md);
+    }
+    
+    .btn {
+        padding: var(--spacing-sm) var(--spacing-md);
+        font-size: 0.85rem;
+    }
+    
+    .btn-large {
+        padding: var(--spacing-md) var(--spacing-lg);
+        font-size: 0.95rem;
+    }
+    
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-sm);
+    }
+    
+    .final-cta-title {
+        font-size: 1.5rem;
+    }
+    
+    .final-cta-description {
+        font-size: 0.95rem;
+    }
+}
+
+/* Landscape Mobile Devices */
+@media (max-width: 767px) and (orientation: landscape) {
+    .nav-menu {
+        height: calc(100vh - 70px);
+        max-height: 500px;
+    }
+    
+    .hero {
+        padding: 70px 0 var(--spacing-lg);
+        min-height: auto;
+    }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+    .btn,
+    .nav-link,
+    .dropdown-item {
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    .nav-toggle {
+        min-width: 44px;
+        min-height: 44px;
+    }
+}

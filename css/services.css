@@ -660,6 +660,28 @@
 /* ============================================
    Responsive Design
    ============================================ */
+/* Tablet Styles (768px - 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .services-hero {
+        padding: 130px 0 100px;
+    }
+    
+    .capabilities-list {
+        gap: var(--spacing-lg);
+    }
+    
+    .intelligence-grid-services,
+    .use-cases-grid,
+    .why-services-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-md);
+    }
+    
+    .capability-item {
+        padding: var(--spacing-lg);
+    }
+}
+
 @media (max-width: 1024px) {
     .capabilities-list {
         gap: var(--spacing-xl);
