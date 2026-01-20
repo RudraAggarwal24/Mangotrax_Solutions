@@ -804,13 +804,6 @@
     margin: 0;
 }
 
-/* Footer Tagline */
-.footer-tagline-bottom {
-    font-size: 0.95rem;
-    color: var(--text-light);
-    line-height: 1.6;
-    margin: 16px 0 24px;
-    font-style: italic;
 }
 
 /* Responsive Design */
