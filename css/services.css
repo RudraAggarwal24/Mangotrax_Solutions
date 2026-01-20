@@ -290,6 +290,10 @@
     text-align: center;
     position: relative;
     overflow: hidden;
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
 }
 
 .intelligence-block-services::before {
@@ -397,6 +401,10 @@
     transition: all var(--transition-smooth);
     position: relative;
     overflow: hidden;
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
 }
 
 .use-case-card::before {
