@@ -4,6 +4,131 @@ document.addEventListener('DOMContentLoaded', function() {
     
     if (!form) return;
 
+    // ============================================
+    // Multi-Select Dropdown Functionality
+    // ============================================
+    const servicesDropdown = document.getElementById('servicesDropdown');
+    const servicesTrigger = document.getElementById('servicesTrigger');
+    const servicesPanel = document.getElementById('servicesPanel');
+    const serviceCheckboxes = form.querySelectorAll('.service-checkbox');
+    const placeholder = servicesTrigger.querySelector('.multi-select-placeholder');
+    const valueDisplay = servicesTrigger.querySelector('.multi-select-value');
+
+    if (servicesDropdown && servicesTrigger && servicesPanel) {
+        // Toggle dropdown
+        servicesTrigger.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const isOpen = servicesPanel.classList.contains('open');
+            
+            if (isOpen) {
+                closeDropdown();
+            } else {
+                openDropdown();
+            }
+        });
+
+        // Handle checkbox changes
+        serviceCheckboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                updateDropdownDisplay();
+                updateDropdownValidation();
+            });
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!servicesDropdown.contains(e.target)) {
+                closeDropdown();
+            }
+        });
+
+        // Keyboard accessibility
+        servicesTrigger.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                const isOpen = servicesPanel.classList.contains('open');
+                if (isOpen) {
+                    closeDropdown();
+                } else {
+                    openDropdown();
+                }
+            } else if (e.key === 'Escape') {
+                closeDropdown();
+            }
+        });
+
+        // Handle keyboard navigation in dropdown
+        serviceCheckboxes.forEach((checkbox, index) => {
+            checkbox.addEventListener('keydown', function(e) {
+                if (e.key === 'ArrowDown') {
+                    e.preventDefault();
+                    const nextIndex = (index + 1) % serviceCheckboxes.length;
+                    serviceCheckboxes[nextIndex].focus();
+                } else if (e.key === 'ArrowUp') {
+                    e.preventDefault();
+                    const prevIndex = (index - 1 + serviceCheckboxes.length) % serviceCheckboxes.length;
+                    serviceCheckboxes[prevIndex].focus();
+                } else if (e.key === 'Escape') {
+                    e.preventDefault();
+                    closeDropdown();
+                    servicesTrigger.focus();
+                }
+            });
+        });
+
+        function openDropdown() {
+            servicesPanel.classList.add('open');
+            servicesTrigger.setAttribute('aria-expanded', 'true');
+        }
+
+        function closeDropdown() {
+            servicesPanel.classList.remove('open');
+            servicesTrigger.setAttribute('aria-expanded', 'false');
+        }
+
+        function updateDropdownDisplay() {
+            const selected = Array.from(serviceCheckboxes)
+                .filter(cb => cb.checked)
+                .map(cb => {
+                    const label = cb.closest('.multi-select-option').querySelector('span').textContent;
+                    return label;
+                });
+
+            if (selected.length === 0) {
+                placeholder.style.display = 'block';
+                valueDisplay.style.display = 'none';
+            } else if (selected.length === 1) {
+                placeholder.style.display = 'none';
+                valueDisplay.textContent = selected[0];
+                valueDisplay.style.display = 'block';
+            } else {
+                placeholder.style.display = 'none';
+                // Show count or truncated list
+                const totalLength = selected.join(', ').length;
+                if (totalLength > 50) {
+                    valueDisplay.textContent = `${selected.length} services selected`;
+                } else {
+                    valueDisplay.textContent = selected.join(', ');
+                }
+                valueDisplay.style.display = 'block';
+            }
+        }
+
+        function updateDropdownValidation() {
+            const formGroup = servicesDropdown.closest('.form-group');
+            const validation = validateCheckboxGroup('services');
+            
+            if (validation.valid) {
+                clearError(formGroup);
+            } else {
+                // Don't show error immediately, wait for form submission or blur
+            }
+        }
+
+        // Initialize display
+        updateDropdownDisplay();
+    }
+
     // Form validation functions
     function validateName(input) {
         const value = input.value.trim();
@@ -79,7 +204,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function validateCheckboxGroup(name) {
-        const checkboxes = form.querySelectorAll(`input[name="${name}"]`);
+        const checkboxes = form.querySelectorAll(`input[name="${name}"].service-checkbox, input[name="${name}"]`);
         const checked = Array.from(checkboxes).some(cb => cb.checked);
         
         if (!checked) {
@@ -148,9 +273,9 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Validate services checkboxes
-    const serviceCheckboxes = form.querySelectorAll('input[name="services"]');
-    serviceCheckboxes.forEach(checkbox => {
+    // Validate services checkboxes (if not already handled by dropdown)
+    const existingServiceCheckboxes = form.querySelectorAll('input[name="services"]:not(.service-checkbox)');
+    existingServiceCheckboxes.forEach(checkbox => {
         checkbox.addEventListener('change', function() {
             const formGroup = this.closest('.form-group');
             const validation = validateCheckboxGroup('services');
@@ -201,11 +326,14 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         // Validate services checkboxes
-        const servicesGroup = form.querySelector('.checkbox-group').closest('.form-group');
-        const servicesValidation = validateCheckboxGroup('services');
-        if (!servicesValidation.valid) {
-            showError(servicesGroup, servicesValidation.message);
-            isValid = false;
+        const servicesGroup = form.querySelector('.multi-select-dropdown')?.closest('.form-group') || 
+                             form.querySelector('.checkbox-group')?.closest('.form-group');
+        if (servicesGroup) {
+            const servicesValidation = validateCheckboxGroup('services');
+            if (!servicesValidation.valid) {
+                showError(servicesGroup, servicesValidation.message);
+                isValid = false;
+            }
         }
 
         // Validate consent checkbox
@@ -226,6 +354,14 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Reset form
             form.reset();
+            
+            // Reset multi-select dropdown display
+            if (servicesDropdown && placeholder && valueDisplay) {
+                placeholder.style.display = 'block';
+                valueDisplay.style.display = 'none';
+                servicesPanel.classList.remove('open');
+                servicesTrigger.setAttribute('aria-expanded', 'false');
+            }
             
             // Scroll to success message
             successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
