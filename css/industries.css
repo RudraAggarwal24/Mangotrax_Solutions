@@ -206,12 +206,18 @@
     border: 1px solid var(--border-light);
     box-shadow: var(--shadow-md);
     transition: all var(--transition-smooth);
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
 }
 
 .industry-detail:hover {
     transform: translateY(-4px);
     box-shadow: var(--shadow-xl);
     border-color: rgba(255, 105, 0, 0.3);
+    text-decoration: none;
+    color: inherit;
 }
 
 .industry-header {
@@ -221,17 +227,28 @@
     margin-bottom: var(--spacing-lg);
 }
 
-.industry-icon {
-    width: 70px;
-    height: 70px;
+.industry-detail .industry-icon {
+    width: 60px;
+    height: 60px;
     flex-shrink: 0;
-    background: var(--gradient-primary);
-    border-radius: var(--radius-md);
+    background: transparent !important;
+    border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
-    font-size: 1.75rem;
+    color: #ff6900 !important;
+    font-size: 2.5rem;
+    padding: 0;
+    margin-right: var(--spacing-md);
+    -webkit-background-clip: unset !important;
+    -webkit-text-fill-color: #ff6900 !important;
+    background-clip: unset !important;
+}
+
+.industry-detail .industry-icon i {
+    color: #ff6900 !important;
+    font-size: 2.5rem;
+    -webkit-text-fill-color: #ff6900 !important;
 }
 
 .industry-name {
@@ -321,9 +338,10 @@
     font-weight: 600;
     text-decoration: none;
     transition: all var(--transition-base);
+    margin-top: var(--spacing-lg);
 }
 
-.industry-link:hover {
+.industry-detail:hover .industry-link {
     gap: var(--spacing-md);
     color: var(--secondary-color);
 }
@@ -333,7 +351,7 @@
     transition: transform var(--transition-base);
 }
 
-.industry-link:hover i {
+.industry-detail:hover .industry-link i {
     transform: translateX(4px);
 }
 
@@ -375,7 +393,48 @@
    ============================================ */
 .service-connection {
     padding: var(--spacing-3xl) 0;
-    background: var(--bg-white);
+    background: linear-gradient(135deg, #001f3f 0%, #003366 50%, #001f3f 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.service-connection::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 30%, rgba(255, 105, 0, 0.15), transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(99, 102, 241, 0.15), transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.05), transparent 60%);
+    pointer-events: none;
+}
+
+.service-connection .container {
+    position: relative;
+    z-index: 10;
+}
+
+.service-connection .section-title {
+    color: #ffffff;
+}
+
+.service-connection .section-description {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.service-connection .btn-outline {
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.5);
+    background: transparent;
+}
+
+.service-connection .btn-outline:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: #ffffff;
+    color: #ffffff;
 }
 
 .service-connection-grid {
@@ -402,6 +461,10 @@
     transition: all var(--transition-smooth);
     position: relative;
     overflow: hidden;
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
 }
 
 .service-connect-card::before {
@@ -417,13 +480,15 @@
     transition: transform var(--transition-base);
 }
 
-.service-connect-card:hover::before {
-    transform: scaleX(1);
-}
-
 .service-connect-card:hover {
+    text-decoration: none;
+    color: inherit;
     transform: translateY(-6px);
     box-shadow: var(--shadow-xl);
+}
+
+.service-connect-card:hover::before {
+    transform: scaleX(1);
 }
 
 .service-connect-icon {
@@ -457,6 +522,16 @@
 .why-matters {
     padding: var(--spacing-3xl) 0;
     background: linear-gradient(135deg, rgba(255, 105, 0, 0.03) 0%, rgba(6, 147, 227, 0.03) 100%);
+}
+
+.why-matters-intro {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: var(--text-dark);
+    text-align: center;
+    max-width: 900px;
+    margin: var(--spacing-lg) auto var(--spacing-xl);
+    font-weight: 500;
 }
 
 .why-matters-grid {
@@ -655,10 +730,14 @@
         padding: 2rem;
     }
     
-    .industry-icon {
-        width: 70px;
-        height: 70px;
-        font-size: 1.75rem;
+    .industry-detail .industry-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 2rem;
+    }
+    
+    .industry-detail .industry-icon i {
+        font-size: 2rem;
     }
     
     .adapt-principle {
