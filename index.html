@@ -139,9 +139,8 @@
                         <span>Start a Conversation</span>
                         <i class="fas fa-arrow-right"></i>
                     </a>
-                    <a href="#services" class="btn btn-outline-white btn-large">
+                    <a href="services.html" class="btn btn-outline-white btn-large">
                         <span>Explore Capabilities</span>
-                        <i class="fas fa-chevron-down"></i>
                     </a>
                 </div>
                 <div class="hero-trust-indicators">
@@ -548,17 +547,19 @@
 
     <!-- Get a free quote Modal -->
     <div id="coffeeDialog">
-        <button id="cdClose" class="cd-close-left">Close</button>
-        <div class="cd-content">
-            <h2 class="cd-title">Get a free quote!</h2>
-            <form class="cd-form" id="quote-form">
-                <input type="text" name="fullName" placeholder="Full Name" required>
-                <input type="email" name="email" placeholder="Email" required>
-                <input type="tel" name="phone" placeholder="Phone No." required>
-                <input type="text" name="country" placeholder="country" required>
-                <textarea name="message" placeholder="Write message...." rows="4" required></textarea>
-                <button type="submit">Submit</button>
-            </form>
+        <div class="cd-modal-container">
+            <button id="cdClose" class="cd-close-btn">×</button>
+            <div class="cd-content">
+                <h2 class="cd-title">Get a free quote!</h2>
+                <form class="cd-form" id="quote-form">
+                    <input type="text" name="fullName" placeholder="Full Name" required>
+                    <input type="email" name="email" placeholder="Email" required>
+                    <input type="tel" name="phone" placeholder="Phone No." required>
+                    <input type="text" name="country" placeholder="country" required>
+                    <textarea name="message" placeholder="Write message...." rows="4" required></textarea>
+                    <button type="submit" class="cd-submit-btn">Submit</button>
+                </form>
+            </div>
         </div>
     </div>
 

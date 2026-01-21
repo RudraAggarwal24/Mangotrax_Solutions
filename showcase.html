@@ -111,22 +111,8 @@
     </nav>
 </header>
 
+    <!-- Connect With Us Button -->
     <div id="coffeeTab">Connect With Us</div>
-
-<div id="coffeeDialog">
-  <div class="cd-header">
-    <span>Let's discuss your project</span>
-    <button id="cdClose">✕</button>
-  </div>
-
-  <form class="cd-form">
-    <input placeholder="Full Name" required>
-    <input type="email" placeholder="Email" required>
-    <input placeholder="Phone No.">
-    <textarea placeholder="Tell us about your requirements"></textarea>
-    <button type="submit">Submit</button>
-  </form>
-</div>
     <!-- Case Studies Hero Section -->
     <section class="case-studies-hero">
         <div class="hero-squares">
@@ -554,6 +540,27 @@
                 </div>
                 <button type="submit" class="btn btn-primary btn-large">Submit Request</button>
             </form>
+        </div>
+    </div>
+
+    <!-- Connect With Us Button -->
+    <div id="coffeeTab">Connect With Us</div>
+
+    <!-- Get a free quote Modal -->
+    <div id="coffeeDialog">
+        <div class="cd-modal-container">
+            <button id="cdClose" class="cd-close-btn">×</button>
+            <div class="cd-content">
+                <h2 class="cd-title">Get a free quote!</h2>
+                <form class="cd-form" id="quote-form">
+                    <input type="text" name="fullName" placeholder="Full Name" required>
+                    <input type="email" name="email" placeholder="Email" required>
+                    <input type="tel" name="phone" placeholder="Phone No." required>
+                    <input type="text" name="country" placeholder="country" required>
+                    <textarea name="message" placeholder="Write message...." rows="4" required></textarea>
+                    <button type="submit" class="cd-submit-btn">Submit</button>
+                </form>
+            </div>
         </div>
     </div>
 

@@ -847,7 +847,6 @@ body::after {
 
 .btn-primary:hover {
     background-position: 100% 0;
-    transform: translateY(-3px) scale(1.02);
     box-shadow: var(--shadow-lg), var(--shadow-glow);
 }
 
@@ -886,7 +885,6 @@ body::after {
     border-color: var(--primary-color);
     color: var(--bg-white);
     background: transparent;
-    transform: translateY(-2px) scale(1.05);
     box-shadow: var(--shadow-md);
 }
 
@@ -1842,7 +1840,6 @@ body::after {
 
 .cta .btn-primary:hover {
     background: var(--bg-light);
-    transform: translateY(-3px);
     box-shadow: 0 6px 30px rgba(0, 0, 0, 0.3);
 }
 
@@ -3615,113 +3612,238 @@ html {
 }
 
 /* ===== DIALOG PANEL ===== */
+/* Modal Container - Right Side Slide-in */
 #coffeeDialog {
   position: fixed !important;
-
   right: 0;
   top: 50%;
-
-  width: 90vw;
-  max-width: 360px;
-  min-width: 280px;
-
-  /* Completely hidden when closed */
   transform: translate3d(100%, -50%, 0);
   transition: transform 0.35s ease;
-
-  background: #ffffff;
-  border-radius: 12px 0 0 12px;
-  box-shadow: -10px 0 30px rgba(0,0,0,.18);
-
-  max-height: 90vh;
-  overflow-y: auto;
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE and Edge */
-
   z-index: 2147483646;
+  pointer-events: none;
 }
 
-#coffeeDialog::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Opera */
-
-  /* Same protection as WhatsApp button */
-  backface-visibility: hidden;
-  will-change: transform;
-  isolation: isolate;
-}
-
-/* OPEN STATE */
 #coffeeDialog.active {
   transform: translate3d(0, -50%, 0);
+  pointer-events: auto;
 }
 
-/* ===== CONTENT ===== */
-.cd-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 14px 16px;
-  border-bottom: 1px solid #e5e7eb;
-  font-weight: 600;
+.cd-modal-container {
+  position: relative;
+  background: #ffffff;
+  border-radius: 12px 0 0 12px;
+  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.18);
+  width: 90vw;
+  max-width: 380px;
+  min-width: 300px;
+  max-height: 90vh;
+  overflow: hidden;
 }
 
-#cdClose {
+/* Close Button - Top-right corner */
+.cd-close-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
   background: none;
   border: none;
-  font-size: 18px;
+  font-size: 20px;
+  font-weight: 600;
+  font-family: 'Sora', sans-serif;
+  color: var(--text-dark);
   cursor: pointer;
+  padding: 4px 8px;
+  z-index: 20;
+  transition: color 0.2s ease;
+  line-height: 1;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+.cd-close-btn:hover {
+  color: var(--primary-color);
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+}
+
+/* Content Wrapper */
+.cd-content {
+  padding: 50px 24px 24px 24px;
+  overflow-y: auto;
+  max-height: 90vh;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+}
+
+.cd-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.cd-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.cd-content::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+}
+
+/* Title */
+.cd-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin: 0 0 24px 0;
+  padding-right: 40px;
+  text-decoration: underline;
+  text-underline-offset: 6px;
+  text-decoration-thickness: 2px;
+  font-family: var(--font-primary);
+}
+
+/* Form */
 .cd-form {
-  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .cd-form input,
 .cd-form textarea {
   width: 100%;
-  padding: 10px;
-  margin-bottom: 12px;
-  border: 1px solid #d1d5db;
-  border-radius: 6px;
+  padding: 10px 0;
+  border: none;
+  border-bottom: 1px solid #d1d5db;
+  border-radius: 0;
+  font-family: var(--font-primary);
+  font-size: 0.9rem;
+  color: var(--text-dark);
+  background: transparent;
+  transition: border-color 0.3s ease;
+  box-sizing: border-box;
 }
 
-.cd-form button {
+.cd-form input:focus,
+.cd-form textarea:focus {
+  outline: none;
+  border-bottom-color: var(--primary-color);
+}
+
+.cd-form input::placeholder,
+.cd-form textarea::placeholder {
+  color: #9ca3af;
+}
+
+.cd-form textarea {
+  resize: vertical;
+  min-height: 70px;
+}
+
+/* Submit Button */
+.cd-submit-btn {
   width: 100%;
-  padding: 12px 24px;
+  padding: 12px 20px;
+  margin-top: 4px;
   font-family: var(--font-primary);
   font-weight: 600;
   font-size: 0.95rem;
-  background: var(--gradient-primary);
-  color: var(--bg-white);
+  background: #ff6900;
+  color: #ffffff;
   border: none;
-  border-radius: var(--radius-full);
+  border-radius: 8px;
   cursor: pointer;
-  transition: all var(--transition-base);
-  box-shadow: var(--shadow-primary);
-  position: relative;
-  overflow: hidden;
-  background-size: 200% 200%;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 12px rgba(255, 105, 0, 0.3);
 }
 
-.cd-form button::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-  transition: left var(--transition-slow);
+.cd-submit-btn:hover {
+  background: #e55a00;
 }
 
-.cd-form button:hover {
-  background-position: 100% 0;
-  transform: translateY(-3px) scale(1.02);
-  box-shadow: var(--shadow-lg), var(--shadow-glow);
+/* Responsive styles for modal */
+@media (max-width: 768px) {
+  #coffeeDialog {
+    width: 95vw;
+    max-width: 100%;
+  }
+
+  .cd-modal-container {
+    width: 100%;
+    max-width: 100%;
+    max-height: 95vh;
+    border-radius: 12px 0 0 12px;
+  }
+
+  .cd-content {
+    padding: 45px 20px 20px 20px;
+  }
+
+  .cd-close-btn {
+    top: 12px;
+    right: 12px;
+    font-size: 18px;
+    width: 24px;
+    height: 24px;
+  }
+
+  .cd-title {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    padding-right: 35px;
+  }
+
+  .cd-form {
+    gap: 20px;
+  }
+
+  .cd-form input,
+  .cd-form textarea {
+    font-size: 0.9rem;
+    padding: 10px 0;
+  }
+
+  .cd-submit-btn {
+    padding: 12px 20px;
+    font-size: 0.95rem;
+  }
 }
 
-.cd-form button:hover::before {
-  left: 100%;
+@media (max-width: 480px) {
+  #coffeeDialog {
+    width: 100vw;
+  }
+
+  .cd-modal-container {
+    width: 100%;
+    border-radius: 0;
+    max-height: 100vh;
+  }
+
+  .cd-content {
+    padding: 40px 16px 16px 16px;
+    max-height: calc(100vh - 40px);
+  }
+
+  .cd-close-btn {
+    top: 10px;
+    right: 10px;
+    font-size: 18px;
+    width: 24px;
+    height: 24px;
+  }
+
+  .cd-title {
+    font-size: 1.1rem;
+    margin-bottom: 18px;
+    padding-right: 30px;
+  }
+
+  .cd-form {
+    gap: 18px;
+  }
 }
 
 /* ============================================
@@ -4729,4 +4851,37 @@ html {
         min-width: 44px;
         min-height: 44px;
     }
+}
+
+/* ============================================
+   Remove All Button Animations
+   ============================================ */
+.btn,
+button,
+.btn-primary,
+.btn-outline,
+.btn-outline-white,
+.cd-form button,
+button[type="submit"],
+button[type="button"] {
+    transform: none !important;
+}
+
+.btn:hover,
+button:hover,
+.btn-primary:hover,
+.btn-outline:hover,
+.btn-outline-white:hover,
+.cd-form button:hover,
+button[type="submit"]:hover,
+button[type="button"]:hover,
+.btn:active,
+button:active,
+.btn-primary:active,
+.btn-outline:active,
+.btn-outline-white:active,
+.cd-form button:active,
+button[type="submit"]:active,
+button[type="button"]:active {
+    transform: none !important;
 }

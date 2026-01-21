@@ -123,8 +123,17 @@
     line-height: 1.7;
     color: rgba(255, 255, 255, 0.9);
     max-width: 800px;
-    margin: 0 auto 60px;
+    margin: 0 auto 30px;
     animation: fadeInUp 0.8s ease-out 0.4s backwards;
+}
+
+.hero-supporting {
+    font-size: clamp(1rem, 1.8vw, 1.2rem);
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.85);
+    max-width: 800px;
+    margin: 0 auto 60px;
+    animation: fadeInUp 0.8s ease-out 0.5s backwards;
 }
 
 .hero-stats {
@@ -161,7 +170,7 @@
     padding: 80px 20px;
     position: relative;
     z-index: 20;
-    background: #f8f9fa;
+    background: #001f3f;
 }
 
 .mv-quick-grid {
@@ -813,7 +822,6 @@
 .btn-outline-white:hover {
     background: white;
     color: #001f3f;
-    transform: translateY(-2px);
     box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
 }
 
@@ -824,7 +832,6 @@
 }
 
 .btn-primary:hover {
-    transform: translateY(-2px);
     box-shadow: 0 10px 30px rgba(255, 105, 0, 0.4);
 }
 

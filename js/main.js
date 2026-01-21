@@ -466,30 +466,9 @@ serviceCards.forEach(card => {
 });
 
 // ============================================
-// Button Click Animations
+// Button Click Animations - REMOVED
 // ============================================
-const buttons = document.querySelectorAll('.btn');
-buttons.forEach(button => {
-    button.addEventListener('click', function(e) {
-        // Create ripple effect
-        const ripple = document.createElement('span');
-        const rect = this.getBoundingClientRect();
-        const size = Math.max(rect.width, rect.height);
-        const x = e.clientX - rect.left - size / 2;
-        const y = e.clientY - rect.top - size / 2;
-        
-        ripple.style.width = ripple.style.height = size + 'px';
-        ripple.style.left = x + 'px';
-        ripple.style.top = y + 'px';
-        ripple.classList.add('ripple');
-        
-        this.appendChild(ripple);
-        
-        setTimeout(() => {
-            ripple.remove();
-        }, 600);
-    });
-});
+// Button animations removed per user request
 
 // ============================================
 // Form Validation (if forms are added later)
@@ -714,13 +693,7 @@ console.log('%c Igniting Ideas, Inspiring Solutions ', 'color: #0693e3; font-siz
       };
     }
 
-    // Close on backdrop click
-    dialog.addEventListener("click", (e) => {
-      if (e.target === dialog) {
-        dialog.classList.remove("active");
-        document.body.style.overflow = "";
-      }
-    });
+    // Close on backdrop click (removed - no backdrop)
 
     // Close on Escape key
     document.addEventListener("keydown", (e) => {
