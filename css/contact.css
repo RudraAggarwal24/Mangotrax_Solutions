@@ -114,6 +114,18 @@
     grid-template-columns: 1fr 1fr;
     gap: 40px;
     align-items: start;
+    animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Form Parts */
@@ -124,23 +136,108 @@
     padding: 32px;
     background: #ffffff;
     border-radius: 16px;
-    border: 1px solid #e2e8f0;
-    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     min-height: 100%;
+    animation: slideInForm 0.6s ease-out backwards;
 }
 
-.form-part:hover {
-    border-color: #cbd5e1;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+.form-part::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 16px;
+    padding: 2px;
+    background: linear-gradient(135deg, rgba(255, 105, 0, 0.1), rgba(6, 147, 227, 0.1), rgba(255, 105, 0, 0.1));
+    background-size: 300% 300%;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    animation: subtleBorderFlow 8s ease-in-out infinite;
+    z-index: -1;
+    opacity: 0.6;
 }
 
 .form-part-left {
-    border-left: 4px solid #ff6900;
+    animation-delay: 0.1s;
+}
+
+.form-part-left::before {
+    background: linear-gradient(135deg, rgba(255, 105, 0, 0.15), rgba(255, 133, 51, 0.1), rgba(255, 105, 0, 0.15));
+    background-size: 300% 300%;
+    animation: subtleOrangeFlow 8s ease-in-out infinite;
 }
 
 .form-part-right {
-    border-left: 4px solid #ff6900;
+    animation-delay: 0.2s;
 }
+
+.form-part-right::before {
+    background: linear-gradient(135deg, rgba(6, 147, 227, 0.15), rgba(59, 168, 240, 0.1), rgba(6, 147, 227, 0.15));
+    background-size: 300% 300%;
+    animation: subtleBlueFlow 8s ease-in-out infinite;
+}
+
+@keyframes slideInForm {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes subtleBorderFlow {
+    0%, 100% {
+        background-position: 0% 50%;
+        opacity: 0.4;
+    }
+    50% {
+        background-position: 100% 50%;
+        opacity: 0.7;
+    }
+}
+
+@keyframes subtleOrangeFlow {
+    0%, 100% {
+        background-position: 0% 50%;
+        opacity: 0.5;
+    }
+    50% {
+        background-position: 100% 50%;
+        opacity: 0.8;
+    }
+}
+
+@keyframes subtleBlueFlow {
+    0%, 100% {
+        background-position: 0% 50%;
+        opacity: 0.5;
+    }
+    50% {
+        background-position: 100% 50%;
+        opacity: 0.8;
+    }
+}
+
+.form-part:hover {
+    transform: translateY(-2px);
+}
+
+.form-part:hover::before {
+    animation-duration: 1.5s;
+    opacity: 1;
+}
+
+/* Border accent removed - now using animated gradient border */
 
 .form-part-title {
     font-size: 1.375rem;
@@ -150,6 +247,18 @@
     padding-bottom: 16px;
     border-bottom: 2px solid #f1f5f9;
     letter-spacing: -0.01em;
+    animation: fadeInTitle 0.5s ease-out 0.3s backwards;
+}
+
+@keyframes fadeInTitle {
+    from {
+    opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Form Groups */
@@ -157,6 +266,28 @@
     display: flex;
     flex-direction: column;
     gap: 8px;
+    position: relative;
+    animation: fadeInField 0.5s ease-out backwards;
+}
+
+.form-group:nth-child(1) { animation-delay: 0.1s; }
+.form-group:nth-child(2) { animation-delay: 0.15s; }
+.form-group:nth-child(3) { animation-delay: 0.2s; }
+.form-group:nth-child(4) { animation-delay: 0.25s; }
+.form-group:nth-child(5) { animation-delay: 0.3s; }
+.form-group:nth-child(6) { animation-delay: 0.35s; }
+.form-group:nth-child(7) { animation-delay: 0.4s; }
+.form-group:nth-child(8) { animation-delay: 0.45s; }
+
+@keyframes fadeInField {
+    from {
+    opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .form-group label {
@@ -175,6 +306,14 @@
     font-size: 1rem;
     min-width: 18px;
     opacity: 0.9;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: inline-block;
+}
+
+.form-group:focus-within label i {
+    color: #ff6900;
+    transform: scale(1.1);
+    opacity: 1;
 }
 
 .required {
@@ -197,15 +336,42 @@
 .form-group select,
 .form-group textarea {
     padding: 14px 16px;
-    border: 1.5px solid #e2e8f0;
+    border: 2px solid #e2e8f0;
     border-radius: 10px;
     font-size: 1rem;
     font-family: var(--font-primary);
     color: #0f172a;
     background: #ffffff;
-    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     width: 100%;
     line-height: 1.5;
+    position: relative;
+}
+
+.form-group input[type="text"]:hover,
+.form-group input[type="email"]:hover,
+.form-group input[type="tel"]:hover,
+.form-group select:hover,
+.form-group textarea:hover {
+    background: #fafbfc;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    border-image: linear-gradient(135deg, #cbd5e1, #94a3b8, #cbd5e1) 1;
+    border-image-slice: 1;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group input[type="tel"]:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    background: #ffffff;
+    transform: translateY(-2px);
+    border-image: linear-gradient(135deg, #ff6900, #ff8533, #ff6900) 1;
+    border-image-slice: 1;
+    animation: focusBorderPulse 2s ease infinite;
+    box-shadow: 0 0 0 4px rgba(255, 105, 0, 0.1), 0 4px 12px rgba(255, 105, 0, 0.15);
 }
 
 .form-group input[type="text"]:hover,
@@ -215,6 +381,8 @@
 .form-group textarea:hover {
     border-color: #cbd5e1;
     background: #fafbfc;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
 .form-group input[type="text"]:focus,
@@ -224,14 +392,24 @@
 .form-group textarea:focus {
     outline: none;
     border-color: #ff6900;
-    box-shadow: 0 0 0 4px rgba(255, 105, 0, 0.1);
     background: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 0 0 4px rgba(255, 105, 0, 0.1), 0 4px 12px rgba(255, 105, 0, 0.15);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 
 .form-group input::placeholder,
 .form-group textarea::placeholder {
     color: #94a3b8;
     font-weight: 400;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus::placeholder,
+.form-group textarea:focus::placeholder {
+    color: #cbd5e1;
+    transform: translateX(4px);
 }
 
 /* Select Dropdown */
@@ -269,7 +447,7 @@
 .multi-select-trigger {
     width: 100%;
     padding: 14px 16px;
-    border: 1.5px solid #e2e8f0;
+    border: 2px solid #e2e8f0;
     border-radius: 10px;
     background: #ffffff;
     font-size: 1rem;
@@ -280,30 +458,36 @@
     align-items: center;
     justify-content: space-between;
     gap: 12px;
-    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     text-align: left;
     min-height: 48px;
+    position: relative;
 }
 
 .multi-select-trigger:hover {
     border-color: #cbd5e1;
     background: #fafbfc;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
 .multi-select-trigger:focus {
     outline: none;
     border-color: #ff6900;
-    box-shadow: 0 0 0 4px rgba(255, 105, 0, 0.1);
+    box-shadow: 0 0 0 4px rgba(255, 105, 0, 0.1), 0 4px 12px rgba(255, 105, 0, 0.15);
     background: #ffffff;
+    transform: translateY(-2px);
 }
 
 .multi-select-trigger[aria-expanded="true"] {
     border-color: #ff6900;
-    box-shadow: 0 0 0 4px rgba(255, 105, 0, 0.1);
+    box-shadow: 0 0 0 4px rgba(255, 105, 0, 0.1), 0 4px 12px rgba(255, 105, 0, 0.15);
+    transform: translateY(-2px);
 }
 
 .multi-select-trigger[aria-expanded="true"] .multi-select-arrow {
     transform: rotate(180deg);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .multi-select-placeholder {
@@ -323,8 +507,12 @@
 .multi-select-arrow {
     color: #64748b;
     font-size: 0.875rem;
-    transition: transform 0.2s ease;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), color 0.3s ease;
     flex-shrink: 0;
+}
+
+.multi-select-trigger:hover .multi-select-arrow {
+    color: #ff6900;
 }
 
 .multi-select-panel {
@@ -333,15 +521,19 @@
     left: 0;
     right: 0;
     background: #ffffff;
-    border: 1.5px solid #e2e8f0;
+    border: 2px solid #e2e8f0;
     border-radius: 12px;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
     z-index: 1000;
     max-height: 0;
     overflow: hidden;
     opacity: 0;
-    transition: max-height 0.2s ease, opacity 0.2s ease, transform 0.2s ease;
-    transform: translateY(-8px);
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+                opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+                transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 0.3s ease,
+                border-color 0.3s ease;
+    transform: translateY(-10px) scale(0.98);
     display: flex;
     flex-direction: column;
     gap: 4px;
@@ -360,6 +552,7 @@
 .multi-select-panel::-webkit-scrollbar-thumb {
     background: #cbd5e1;
     border-radius: 4px;
+    transition: background 0.3s ease;
 }
 
 .multi-select-panel::-webkit-scrollbar-thumb:hover {
@@ -369,8 +562,10 @@
 .multi-select-panel.open {
     max-height: 400px;
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
     overflow-y: auto;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+    border-color: #ff6900;
 }
 
 .multi-select-option {
@@ -380,12 +575,33 @@
     cursor: pointer;
     padding: 12px;
     border-radius: 8px;
-    transition: all 0.15s ease;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     margin: 0;
+    animation: slideInOption 0.3s ease-out backwards;
+}
+
+.multi-select-option:nth-child(1) { animation-delay: 0.05s; }
+.multi-select-option:nth-child(2) { animation-delay: 0.1s; }
+.multi-select-option:nth-child(3) { animation-delay: 0.15s; }
+.multi-select-option:nth-child(4) { animation-delay: 0.2s; }
+.multi-select-option:nth-child(5) { animation-delay: 0.25s; }
+.multi-select-option:nth-child(6) { animation-delay: 0.3s; }
+
+@keyframes slideInOption {
+    from {
+    opacity: 0;
+        transform: translateX(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
 .multi-select-option:hover {
-    background-color: rgba(255, 105, 0, 0.05);
+    background-color: rgba(255, 105, 0, 0.08);
+    transform: translateX(4px);
+    padding-left: 16px;
 }
 
 .multi-select-option input[type="checkbox"] {
@@ -397,16 +613,19 @@
     flex-shrink: 0;
     border-radius: 4px;
     border: 2px solid #cbd5e1;
-    transition: all 0.2s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .multi-select-option input[type="checkbox"]:checked {
     background-color: #ff6900;
     border-color: #ff6900;
+    transform: scale(1.1);
+    box-shadow: 0 0 0 3px rgba(255, 105, 0, 0.2);
 }
 
 .multi-select-option input[type="checkbox"]:hover {
     border-color: #ff6900;
+    transform: scale(1.05);
 }
 
 .multi-select-option span {
@@ -435,12 +654,14 @@
     cursor: pointer;
     padding: 12px;
     border-radius: 8px;
-    transition: all 0.2s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
 }
 
 .checkbox-label:hover {
-    background-color: rgba(255, 105, 0, 0.05);
+    background-color: rgba(255, 105, 0, 0.08);
+    transform: translateX(4px);
+    padding-left: 16px;
 }
 
 .checkbox-label input[type="checkbox"] {
@@ -453,16 +674,19 @@
     flex-shrink: 0;
     border-radius: 4px;
     border: 2px solid #cbd5e1;
-    transition: all 0.2s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .checkbox-label input[type="checkbox"]:checked {
     background-color: #ff6900;
     border-color: #ff6900;
+    transform: scale(1.1);
+    box-shadow: 0 0 0 3px rgba(255, 105, 0, 0.2);
 }
 
 .checkbox-label input[type="checkbox"]:hover {
     border-color: #ff6900;
+    transform: scale(1.05);
 }
 
 .checkbox-label span {
@@ -481,15 +705,17 @@
     padding: 16px;
     background: #f8fafc;
     border-radius: 12px;
-    border: 1.5px solid #e2e8f0;
+    border: 2px solid #e2e8f0;
     align-items: flex-start;
     margin: 0;
-    transition: all 0.2s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .consent-label:hover {
-    background-color: rgba(255, 105, 0, 0.05);
-    border-color: rgba(255, 105, 0, 0.2);
+    background-color: rgba(255, 105, 0, 0.08);
+    border-color: rgba(255, 105, 0, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 105, 0, 0.1);
 }
 
 .consent-label span {
@@ -536,6 +762,13 @@
 .form-group.error .multi-select-trigger {
     border-color: #ef4444;
     background: #fef2f2;
+    animation: shakeInput 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes shakeInput {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-3px); }
+    20%, 40%, 60%, 80% { transform: translateX(3px); }
 }
 
 .form-group.error .multi-select-trigger:focus {
@@ -556,7 +789,20 @@
     display: flex;
     justify-content: center;
     width: 100%;
-    border-top: 1px solid #e2e8f0;
+    border-top: 2px solid #e2e8f0;
+    animation: fadeInContainer 0.6s ease-out 0.4s backwards;
+    position: relative;
+}
+
+@keyframes fadeInContainer {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .btn-submit {
@@ -570,11 +816,23 @@
     border: none;
     border-radius: 12px;
     cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: 0 4px 12px rgba(255, 105, 0, 0.25);
     letter-spacing: -0.01em;
     position: relative;
     overflow: hidden;
+    animation: fadeInButton 0.6s ease-out 0.5s backwards;
+}
+
+@keyframes fadeInButton {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
 }
 
 .btn-submit::before {
@@ -585,27 +843,46 @@
     width: 100%;
     height: 100%;
     background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transition: left 0.5s ease;
+    transition: left 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-submit::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
 }
 
 .btn-submit:hover {
     background: linear-gradient(135deg, #e55a00 0%, #ff6900 100%);
-    box-shadow: 0 6px 20px rgba(255, 105, 0, 0.35);
-    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(255, 105, 0, 0.4);
+    transform: translateY(-3px) scale(1.02);
 }
 
 .btn-submit:hover::before {
     left: 100%;
 }
 
+.btn-submit:hover::after {
+    width: 300px;
+    height: 300px;
+}
+
 .btn-submit:active {
-    transform: translateY(0);
-    box-shadow: 0 2px 8px rgba(255, 105, 0, 0.3);
+    transform: translateY(-1px) scale(1);
+    box-shadow: 0 4px 12px rgba(255, 105, 0, 0.3);
+    transition: all 0.1s ease;
 }
 
 .btn-submit:focus {
     outline: none;
-    box-shadow: 0 0 0 4px rgba(255, 105, 0, 0.2), 0 4px 12px rgba(255, 105, 0, 0.25);
+    box-shadow: 0 0 0 4px rgba(255, 105, 0, 0.2), 0 8px 24px rgba(255, 105, 0, 0.4);
 }
 
 /* Form Messages */
@@ -623,12 +900,43 @@
 
 @keyframes fadeIn {
     from {
-        opacity: 0;
-        transform: translateY(-10px);
+    opacity: 0;
+        transform: translateY(-10px) scale(0.95);
     }
     to {
         opacity: 1;
-        transform: translateY(0);
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Success message animation */
+.success-message {
+    animation: slideInSuccess 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes slideInSuccess {
+    from {
+        opacity: 0;
+        transform: translateX(-20px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+}
+
+.success-message i {
+    animation: bounceInIcon 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.2s backwards;
+}
+
+@keyframes bounceInIcon {
+    from {
+        opacity: 0;
+        transform: scale(0) rotate(-180deg);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
     }
 }
 
@@ -673,6 +981,13 @@
     display: flex;
     gap: 16px;
     align-items: center;
+    animation: shakeError 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes shakeError {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+    20%, 40%, 60%, 80% { transform: translateX(5px); }
 }
 
 .error-message-box i {
