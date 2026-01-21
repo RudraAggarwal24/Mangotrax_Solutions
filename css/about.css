@@ -633,12 +633,17 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
 }
 
 .industry-card-new:hover {
     border-color: #ff6900;
     transform: translateY(-8px);
     box-shadow: 0 15px 40px rgba(255, 105, 0, 0.1);
+    text-decoration: none;
+    color: inherit;
 }
 
 .industry-card-new i {
