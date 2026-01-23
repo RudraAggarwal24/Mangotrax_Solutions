@@ -2884,6 +2884,12 @@ body::after {
         grid-column: auto;
     }
     
+    /* Ensure footer columns are properly aligned */
+    .footer-col {
+        text-align: left;
+        align-items: flex-start;
+    }
+    
     .footer-description,
     .footer-tagline-bottom {
         max-width: 100%;
@@ -2893,6 +2899,21 @@ body::after {
     .footer-heading {
         font-size: 1.1rem;
         margin-bottom: 20px;
+        text-align: left; /* Ensure text alignment is consistent */
+        display: inline-block; /* Make heading inline-block so underline aligns with text */
+        width: auto;
+    }
+    
+    /* Fix underline alignment on mobile - align with text start */
+    .footer-heading::after {
+        left: 0; /* Align with text start */
+        right: auto;
+        width: 40px;
+        transform: none; /* Reset any transforms */
+    }
+    
+    .footer-links {
+        text-align: left;
     }
     
     .footer-links a {
@@ -3551,12 +3572,19 @@ body::after {
         height: 28px;
     }
     
-    /* Connect With Us button mobile adjustments */
+    /* Connect With Us button mobile adjustments - Keep same as desktop */
     #coffeeTab {
         right: 8px;
+        top: 50%;
+        transform: translateY(-50%) rotate(-90deg) translateZ(0);
+        transform-origin: right center;
         padding: 8px 14px;
         font-size: 12px;
         z-index: 99998; /* Below WhatsApp button */
+    }
+    
+    #coffeeTab:hover {
+        transform: translateY(-50%) rotate(-90deg) translateZ(0) scale(1.05);
     }
 }
 
@@ -3605,21 +3633,48 @@ html {
   transform: translateY(-50%) rotate(-90deg) translateZ(0) scale(1.05);
 }
 
-/* Mobile responsive styles for Connect With Us button */
+/* Mobile responsive styles for Connect With Us button - Keep same vertical style as desktop */
 @media (max-width: 768px) {
     #coffeeTab {
         right: 8px;
+        top: 50%;
+        transform: translateY(-50%) rotate(-90deg) translateZ(0);
+        transform-origin: right center;
         padding: 8px 14px;
         font-size: 12px;
         z-index: 99998;
+        /* Ensure proper rendering on mobile */
+        backface-visibility: hidden;
+        will-change: transform;
+        isolation: isolate;
+        /* Prevent overflow */
+        max-width: calc(100vh - 40px);
+        overflow: hidden;
+    }
+    
+    #coffeeTab:hover {
+        transform: translateY(-50%) rotate(-90deg) translateZ(0) scale(1.05);
     }
 }
 
 @media (max-width: 480px) {
     #coffeeTab {
         right: 6px;
+        top: 50%;
+        transform: translateY(-50%) rotate(-90deg) translateZ(0);
+        transform-origin: right center;
         padding: 6px 12px;
         font-size: 11px;
+        /* Ensure proper rendering on small mobile */
+        backface-visibility: hidden;
+        will-change: transform;
+        isolation: isolate;
+        max-width: calc(100vh - 40px);
+        overflow: hidden;
+    }
+    
+    #coffeeTab:hover {
+        transform: translateY(-50%) rotate(-90deg) translateZ(0) scale(1.05);
     }
 }
 
@@ -15645,12 +15700,19 @@ button[type="button"]:active {
         padding: 40px 20px 20px;
     }
     
-    /* Connect button */
+    /* Connect button - Keep same vertical rotated style as desktop */
     #coffeeTab {
-        bottom: 20px;
-        right: 20px;
-        padding: 12px 20px;
-        font-size: 0.9rem;
+        right: 8px;
+        top: 50%;
+        transform: translateY(-50%) rotate(-90deg) translateZ(0);
+        transform-origin: right center;
+        padding: 8px 14px;
+        font-size: 12px;
+        z-index: 99998;
+    }
+    
+    #coffeeTab:hover {
+        transform: translateY(-50%) rotate(-90deg) translateZ(0) scale(1.05);
     }
 }
 
@@ -15734,6 +15796,24 @@ button[type="button"]:active {
     /* Footer */
     .footer {
         padding: 40px 0 20px;
+    }
+    
+    /* Ensure footer heading alignment on small mobile */
+    .footer-col {
+        text-align: left;
+        align-items: flex-start;
+    }
+    
+    .footer-heading {
+        text-align: left;
+        display: inline-block;
+        width: auto;
+    }
+    
+    .footer-heading::after {
+        left: 0;
+        right: auto;
+        width: 40px;
     }
     
     /* Contact form */
