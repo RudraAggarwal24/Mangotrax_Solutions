@@ -67,34 +67,49 @@ if (header) {
 }
 
 // ============================================
-// Mobile Menu Toggle
+// Mobile Menu Toggle (robust, locks scroll)
 // ============================================
-if (navToggle) {
-    navToggle.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
-        navToggle.classList.toggle('active');
-        document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+const openNav = () => {
+    if (!navMenu || !navToggle) return;
+    navMenu.classList.add('active');
+    navToggle.classList.add('active');
+    document.body.classList.add('nav-open');
+    navToggle.setAttribute('aria-expanded', 'true');
+};
+
+const closeNav = () => {
+    if (!navMenu || !navToggle) return;
+    navMenu.classList.remove('active');
+    navToggle.classList.remove('active');
+    document.body.classList.remove('nav-open');
+    navToggle.setAttribute('aria-expanded', 'false');
+};
+
+if (navToggle && navMenu) {
+    navToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (navMenu.classList.contains('active')) {
+            closeNav();
+        } else {
+            openNav();
+        }
     });
 }
 
 // Close mobile menu when clicking on a link
 navLinks.forEach(link => {
     link.addEventListener('click', () => {
-        if (window.innerWidth <= 768) {
-            navMenu.classList.remove('active');
-            navToggle.classList.remove('active');
-            document.body.style.overflow = '';
+        if (window.innerWidth <= 992) {
+            closeNav();
         }
     });
 });
 
 // Close mobile menu when clicking outside
 document.addEventListener('click', (e) => {
-    if (window.innerWidth <= 768) {
-        if (!navMenu.contains(e.target) && !navToggle.contains(e.target)) {
-            navMenu.classList.remove('active');
-            navToggle.classList.remove('active');
-            document.body.style.overflow = '';
+    if (window.innerWidth <= 992) {
+        if (navMenu && navToggle && !navMenu.contains(e.target) && !navToggle.contains(e.target)) {
+            closeNav();
         }
     }
 });
